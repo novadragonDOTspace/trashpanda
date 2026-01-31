@@ -100,8 +100,9 @@ script = SubResource("GDScript_gp3kg")
 game_state = NodePath("../../GameState")
 seconds_count = 10000000
 
-[node name="RacoonManager" type="Node" parent="." unique_id=704015668 node_paths=PackedStringArray("racoon_start", "racoon_target", "racoon_container")]
+[node name="RacoonManager" type="Node" parent="." unique_id=704015668 node_paths=PackedStringArray("game_state", "racoon_start", "racoon_target", "racoon_container")]
 script = ExtResource("4_teipn")
+game_state = NodePath("../GameState")
 racoon_start = NodePath("RacoonStart")
 racoon_target = NodePath("RacoonTarget")
 racoon_container = NodePath("RacoonContainer")

@@ -43,6 +43,9 @@ func _ready() -> void:
 	_recalc_production()
 	amount_changed.emit(current_amount)
 
+func add_amount(amount: Big) -> void:
+	current_amount = current_amount.plus(amount)
+	amount_changed.emit(current_amount)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

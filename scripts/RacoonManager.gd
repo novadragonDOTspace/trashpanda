@@ -18,7 +18,8 @@ func _ready() -> void:
 		racoon_container.add_child(racoon)
 		racoons.append(racoon)
 		racoon.global_position = racoon_start.global_position
-		racoon.current_total_distance = (racoon_target.global_position - racoon_start.global_position).length()
+		racoon.current_target = racoon_target
+		racoon.current_total_distance = (racoon.current_target.global_position - racoon_start.global_position).length()
 		racoon.remaining_distance = racoon.current_total_distance
 
 func _update_racoon_position(racoon: Racoon) -> void:
@@ -26,7 +27,7 @@ func _update_racoon_position(racoon: Racoon) -> void:
 	if racoon.returning:
 		percentage = 1 - percentage
 	var start = racoon_start.global_position
-	var end = racoon_target.global_position
+	var end = racoon.current_target.global_position
 	var now = start * (1 - percentage) + end * percentage
 	racoon.global_position = now
 
@@ -65,7 +66,8 @@ func _process(delta: float) -> void:
 					racoon.is_waiting = false
 					if racoon.returning:
 						# TODO(rw): handle successful return
+						game_state.add_amount(Big.new(1))
 						pass
 					racoon.returning = !racoon.returning
-					racoon.remaining_distance += (racoon_target.global_position - racoon_start.global_position).length()
+					racoon.remaining_distance += (racoon.current_target.global_position - racoon_start.global_position).length()
 		_update_racoon_position(racoon)

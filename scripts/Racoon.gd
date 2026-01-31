@@ -7,6 +7,7 @@ var returning: bool = false
 var current_movement_speed = 100
 var is_waiting: bool = false
 var remaining_wait_duration: float = 0
+var current_target: Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
