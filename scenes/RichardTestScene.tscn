@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://bvhlqylnipmq7" path="res://resources/currencies.tres" id="2_71gls"]
 [ext_resource type="Script" uid="uid://bckvjmv4qttbu" path="res://scripts/StatePrersentation.gd" id="3_3ir18"]
 [ext_resource type="Script" uid="uid://cinsn3sejva5a" path="res://scripts/RacoonManager.gd" id="4_teipn"]
+[ext_resource type="Resource" uid="uid://bt75bva0oce3i" path="res://resources/racoon_upgrades.tres" id="5_lq8bq"]
 
 [node name="Node2D" type="Node2D" unique_id=1344187693]
 
@@ -35,6 +36,7 @@ text = "0"
 [node name="RacoonManager" type="Node" parent="." unique_id=704015668 node_paths=PackedStringArray("game_state", "racoon_start", "racoon_targets", "racoon_container")]
 script = ExtResource("4_teipn")
 trash_sources = ExtResource("2_71gls")
+upgrade_data = ExtResource("5_lq8bq")
 game_state = NodePath("../GameState")
 racoon_start = NodePath("RacoonStart")
 racoon_targets = [NodePath("RacoonTarget")]

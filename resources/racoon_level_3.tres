@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="RacoonUpgradeDataEntry" format=3 uid="uid://cco6ylcy2an7f"]
+
+[ext_resource type="Script" uid="uid://blfqvpps1i0i3" path="res://scripts/resources/RacoonUpgradeDataEntry.gd" id="1_ig48m"]
+
+[resource]
+script = ExtResource("1_ig48m")
+scale_factor = 1.25
+metadata/_custom_type_script = "uid://blfqvpps1i0i3"

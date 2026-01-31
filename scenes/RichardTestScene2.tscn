@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://bvhlqylnipmq7" path="res://resources/currencies.tres" id="3_2xv5m"]
 [ext_resource type="Script" uid="uid://cinsn3sejva5a" path="res://scripts/RacoonManager.gd" id="3_to00c"]
 [ext_resource type="Texture2D" uid="uid://c281uciqmnd78" path="res://icon.svg" id="4_q5fso"]
+[ext_resource type="Resource" uid="uid://bt75bva0oce3i" path="res://resources/racoon_upgrades.tres" id="5_82yc7"]
 [ext_resource type="Script" path="res://scenes/home.gd" id="5_vm3p4"]
 [ext_resource type="Script" uid="uid://dre1sjpnnhn0y" path="res://scripts/RacoonCamera.gd" id="6_to00c"]
 [ext_resource type="Texture2D" uid="uid://c42q8u14l0ccg" path="res://grafics/trash_fortress/HomeBase_1.png" id="7_c5i6v"]
@@ -54,6 +55,7 @@ text = "Trash Collected: 99 Duodecim"
 [node name="RacoonManager" type="Node" parent="RacoonShenanigans" unique_id=1965390102 node_paths=PackedStringArray("game_state", "racoon_start", "racoon_targets", "racoon_container")]
 script = ExtResource("3_to00c")
 trash_sources = ExtResource("3_2xv5m")
+upgrade_data = ExtResource("5_82yc7")
 game_state = NodePath("../../GameState")
 racoon_start = NodePath("../Node/Home")
 racoon_targets = [NodePath("../Node/Building1"), NodePath("../Node/Building2"), NodePath("../Node/Building3"), NodePath("../Node/Building4"), NodePath("../Node/Building5"), NodePath("../Node/Building6"), NodePath("../Node/Building7"), NodePath("../Node/Building8"), NodePath("../Node/Building9"), NodePath("../Node/Building10"), NodePath("../Node/Building11"), NodePath("../Node/Building12"), NodePath("../Node/Building13"), NodePath("../Node/Building14"), NodePath("../Node/Building15")]
@@ -72,7 +74,7 @@ z_index = -1
 y_sort_enabled = true
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("10_i4yul")
-offset = Vector2(0, -1024)
+offset = Vector2(-200, -1024)
 
 [node name="Building1" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1301395371]
 position = Vector2(621, 790)

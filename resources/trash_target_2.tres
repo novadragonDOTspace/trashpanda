@@ -5,4 +5,8 @@
 [resource]
 script = ExtResource("1_vw8u7")
 display_name = "Building 2"
+base_price_mantissa = 1000
+production_mantissa = 10
+trash_collection_delay_base_mantissa = 20
+trash_delivery_delay_base_mantissa = 2
 metadata/_custom_type_script = "uid://btln6oucxggur"

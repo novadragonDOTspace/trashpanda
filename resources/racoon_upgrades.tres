@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RacoonUpgradeDataContainer" format=3 uid="uid://bt75bva0oce3i"]
+
+[ext_resource type="Script" uid="uid://blfqvpps1i0i3" path="res://scripts/resources/RacoonUpgradeDataEntry.gd" id="1_2i67m"]
+[ext_resource type="Script" uid="uid://dumxow0jrwp0s" path="res://scripts/resources/RacoonUpgradeDataContainer.gd" id="2_65i76"]
+[ext_resource type="Resource" uid="uid://dlgi7vig4s7jn" path="res://resources/racoon_level_2.tres" id="2_t4jv3"]
+[ext_resource type="Resource" uid="uid://cco6ylcy2an7f" path="res://resources/racoon_level_3.tres" id="3_s6rdx"]
+
+[resource]
+script = ExtResource("2_65i76")
+entries = Array[ExtResource("1_2i67m")]([ExtResource("2_t4jv3"), ExtResource("3_s6rdx")])
+metadata/_custom_type_script = "uid://dumxow0jrwp0s"
