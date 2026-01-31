@@ -10,6 +10,10 @@ var remaining_wait_duration: float = 0
 var current_target: Node2D
 var carried_trash: Big = Big.new(0)
 
+var speed: int
+var strength: int
+var amount: int
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	play("walk")
@@ -18,3 +22,5 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+	play("walk")

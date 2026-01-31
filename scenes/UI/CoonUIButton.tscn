@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://5l4at0bjr251" path="res://grafics/coon_placeholder.png" id="1_e2042"]
 
 [node name="VBoxContainer" type="VBoxContainer" unique_id=1457535689]
+custom_minimum_size = Vector2(200, 0)
+offset_right = 89.0
+offset_bottom = 194.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=431592765]
 layout_mode = 2

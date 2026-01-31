@@ -1,111 +1,9 @@
 [gd_scene format=3 uid="uid://bgjmwye3d5lwp"]
 
 [ext_resource type="Script" uid="uid://dp0bakax16c6y" path="res://scripts/GameState.gd" id="1_or0ix"]
-[ext_resource type="Texture2D" uid="uid://8tw83q50p706" path="res://grafics/Racoon Normal Walk Frames/frame_01.png" id="2_vem8k"]
-[ext_resource type="Texture2D" uid="uid://doypbokdgahkw" path="res://grafics/Racoon Normal Walk Frames/frame_02.png" id="3_00bx2"]
-[ext_resource type="Texture2D" uid="uid://bj7by2bltjrgf" path="res://grafics/Racoon Normal Walk Frames/frame_03.png" id="4_iflog"]
-[ext_resource type="Texture2D" uid="uid://dgp6ndyjlaffn" path="res://grafics/Racoon Normal Walk Frames/frame_04.png" id="5_8qtfq"]
-[ext_resource type="Texture2D" uid="uid://c8hague3cyqoi" path="res://grafics/Racoon Normal Walk Frames/frame_05.png" id="6_vbcts"]
-[ext_resource type="Texture2D" uid="uid://cxcbsvnhq2lv0" path="res://grafics/Racoon Normal Walk Frames/frame_06.png" id="7_4t82j"]
-[ext_resource type="Texture2D" uid="uid://b7e0j8ff5mabh" path="res://grafics/Racoon Normal Walk Frames/frame_07.png" id="8_p5ucw"]
-[ext_resource type="Texture2D" uid="uid://boptdaau1tdni" path="res://grafics/Racoon Normal Walk Frames/frame_08.png" id="9_ejrbo"]
-[ext_resource type="Texture2D" uid="uid://clk6pm3bt4vxv" path="res://grafics/Racoon Normal Walk Frames/frame_09.png" id="10_pf6so"]
-[ext_resource type="Texture2D" uid="uid://c1dde0sxxq2k5" path="res://grafics/Racoon Normal Walk Frames/frame_10.png" id="11_klkq4"]
-[ext_resource type="Texture2D" uid="uid://ory1il34an0k" path="res://grafics/Racoon Normal Walk Frames/frame_11.png" id="12_nl2x2"]
-[ext_resource type="Texture2D" uid="uid://fufrkx82i2rq" path="res://grafics/Racoon Normal Walk Frames/frame_12.png" id="13_o5l6e"]
-[ext_resource type="Texture2D" uid="uid://g68gg5wyuvq2" path="res://grafics/Racoon Normal Walk Frames/frame_13.png" id="14_7yvfv"]
-[ext_resource type="Texture2D" uid="uid://bph7ikfdwyn7c" path="res://grafics/Racoon Normal Walk Frames/frame_14.png" id="15_rbtpu"]
-[ext_resource type="Texture2D" uid="uid://daupmtvtpw25r" path="res://grafics/Racoon Normal Walk Frames/frame_15.png" id="16_68uiu"]
-[ext_resource type="Texture2D" uid="uid://cij15j1vo6xi" path="res://grafics/Racoon Normal Walk Frames/frame_16.png" id="17_dkar0"]
-[ext_resource type="Texture2D" uid="uid://dnqvqdvt012q6" path="res://grafics/Racoon Normal Walk Frames/frame_17.png" id="18_711gd"]
-[ext_resource type="Texture2D" uid="uid://ruqrwrxaem82" path="res://grafics/Racoon Normal Walk Frames/frame_18.png" id="19_rqrmd"]
-[ext_resource type="Texture2D" uid="uid://ddghui4jo8sjv" path="res://grafics/Racoon Normal Walk Frames/frame_19.png" id="20_gj0rx"]
-[ext_resource type="Texture2D" uid="uid://dyayovvxmpudn" path="res://grafics/Racoon Normal Walk Frames/frame_20.png" id="21_lhokl"]
-[ext_resource type="Texture2D" uid="uid://cstgv8hlitguc" path="res://grafics/Racoon Normal Walk Frames/frame_21.png" id="22_avj5q"]
-[ext_resource type="Texture2D" uid="uid://cxl04rcx5i2hf" path="res://grafics/Racoon Normal Walk Frames/frame_22.png" id="23_stbc4"]
-[ext_resource type="Texture2D" uid="uid://cvmlegcobylsf" path="res://grafics/Racoon Normal Walk Frames/frame_23.png" id="24_4ahff"]
-[ext_resource type="Texture2D" uid="uid://cavtvlanrrn1j" path="res://grafics/Racoon Normal Walk Frames/frame_24.png" id="25_a6tfl"]
+[ext_resource type="PackedScene" uid="uid://l55ldl8se7im" path="res://scenes/UI/CoonUIButton.tscn" id="2_5m41d"]
+[ext_resource type="Texture2D" uid="uid://c281uciqmnd78" path="res://icon.svg" id="4_kqv0a"]
 [ext_resource type="Script" uid="uid://cinsn3sejva5a" path="res://scripts/RacoonManager.gd" id="26_0nf0j"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_pq52b"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_vem8k")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_00bx2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_iflog")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_8qtfq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_vbcts")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_4t82j")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_p5ucw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_ejrbo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_pf6so")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_klkq4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_nl2x2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_o5l6e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_7yvfv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_rbtpu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_68uiu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_dkar0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_711gd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_rqrmd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_gj0rx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_lhokl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_avj5q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_stbc4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_4ahff")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_a6tfl")
-}],
-"loop": true,
-"name": &"Walk",
-"speed": 12.0
-}]
 
 [node name="BaseScene" type="Node2D" unique_id=630918859]
 
@@ -117,17 +15,162 @@ metadata/_custom_type_script = "uid://dp0bakax16c6y"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1384933982]
 
+[node name="ScrollContainer" type="ScrollContainer" parent="UI" unique_id=417314945]
+offset_right = 1914.0
+offset_bottom = 309.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/ScrollContainer" unique_id=72864866]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" parent="UI/ScrollContainer/HBoxContainer" unique_id=1457535689 instance=ExtResource("2_5m41d")]
+layout_mode = 2
+
+[node name="VBoxContainer2" parent="UI/ScrollContainer/HBoxContainer" unique_id=1171034590 instance=ExtResource("2_5m41d")]
+layout_mode = 2
+
+[node name="VBoxContainer3" parent="UI/ScrollContainer/HBoxContainer" unique_id=1576387671 instance=ExtResource("2_5m41d")]
+layout_mode = 2
+
+[node name="VBoxContainer4" parent="UI/ScrollContainer/HBoxContainer" unique_id=699978916 instance=ExtResource("2_5m41d")]
+layout_mode = 2
+
+[node name="VBoxContainer5" parent="UI/ScrollContainer/HBoxContainer" unique_id=1692870868 instance=ExtResource("2_5m41d")]
+layout_mode = 2
+
+[node name="VBoxContainer6" parent="UI/ScrollContainer/HBoxContainer" unique_id=1137128153 instance=ExtResource("2_5m41d")]
+layout_mode = 2
+
+[node name="VBoxContainer7" parent="UI/ScrollContainer/HBoxContainer" unique_id=44955218 instance=ExtResource("2_5m41d")]
+layout_mode = 2
+
+[node name="VBoxContainer8" parent="UI/ScrollContainer/HBoxContainer" unique_id=603008823 instance=ExtResource("2_5m41d")]
+layout_mode = 2
+
+[node name="VBoxContainer9" parent="UI/ScrollContainer/HBoxContainer" unique_id=495872050 instance=ExtResource("2_5m41d")]
+layout_mode = 2
+
+[node name="VBoxContainer10" parent="UI/ScrollContainer/HBoxContainer" unique_id=720500268 instance=ExtResource("2_5m41d")]
+layout_mode = 2
+
+[node name="VBoxContainer11" parent="UI/ScrollContainer/HBoxContainer" unique_id=2096243985 instance=ExtResource("2_5m41d")]
+layout_mode = 2
+
+[node name="VBoxContainer12" parent="UI/ScrollContainer/HBoxContainer" unique_id=1965481265 instance=ExtResource("2_5m41d")]
+layout_mode = 2
+
+[node name="VBoxContainer13" parent="UI/ScrollContainer/HBoxContainer" unique_id=967881358 instance=ExtResource("2_5m41d")]
+layout_mode = 2
+
+[node name="VBoxContainer14" parent="UI/ScrollContainer/HBoxContainer" unique_id=1883835114 instance=ExtResource("2_5m41d")]
+layout_mode = 2
+
+[node name="VBoxContainer15" parent="UI/ScrollContainer/HBoxContainer" unique_id=1641419918 instance=ExtResource("2_5m41d")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI" unique_id=413606980]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 3.0
+offset_top = -207.0
+offset_right = 127.0
+offset_bottom = -184.0
+grow_vertical = 2
+text = "Trash Collected: 99 Duodecim"
+
 [node name="RacoonShenanigans" type="Node" parent="." unique_id=1723368633]
 
-[node name="Racoon" type="Node2D" parent="RacoonShenanigans" unique_id=45572453]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RacoonShenanigans/Racoon" unique_id=1691182033]
-position = Vector2(452, 308)
-sprite_frames = SubResource("SpriteFrames_pq52b")
-animation = &"Walk"
-frame_progress = 0.24553873
-flip_h = true
-
-[node name="RacoonManager" type="Node" parent="RacoonShenanigans" unique_id=1965390102]
+[node name="RacoonManager" type="Node" parent="RacoonShenanigans" unique_id=1965390102 node_paths=PackedStringArray("game_state", "racoon_start", "racoon_target", "racoon_container")]
 script = ExtResource("26_0nf0j")
+game_state = NodePath("../../GameState")
+racoon_start = NodePath("../Node/Home")
+racoon_target = NodePath("../Node/Building1")
+racoon_container = NodePath(".")
 metadata/_custom_type_script = "uid://cinsn3sejva5a"
+
+[node name="Node" type="Node" parent="RacoonShenanigans" unique_id=774115949]
+
+[node name="Home" type="Node2D" parent="RacoonShenanigans/Node" unique_id=914785539]
+position = Vector2(71, 790)
+
+[node name="Icon" type="Sprite2D" parent="RacoonShenanigans/Node/Home" unique_id=81623975]
+texture = ExtResource("4_kqv0a")
+
+[node name="Building1" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1301395371]
+position = Vector2(621, 790)
+
+[node name="Icon2" type="Sprite2D" parent="RacoonShenanigans/Node/Building1" unique_id=2037725757]
+texture = ExtResource("4_kqv0a")
+
+[node name="Building2" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1679958728]
+position = Vector2(1171, 790)
+
+[node name="Icon3" type="Sprite2D" parent="RacoonShenanigans/Node/Building2" unique_id=1195477198]
+texture = ExtResource("4_kqv0a")
+
+[node name="Building3" type="Node2D" parent="RacoonShenanigans/Node" unique_id=489935043]
+position = Vector2(1721, 790)
+
+[node name="Icon4" type="Sprite2D" parent="RacoonShenanigans/Node/Building3" unique_id=2147325872]
+texture = ExtResource("4_kqv0a")
+
+[node name="Building4" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1491963263]
+position = Vector2(2271, 790)
+
+[node name="Icon5" type="Sprite2D" parent="RacoonShenanigans/Node/Building4" unique_id=1081755563]
+texture = ExtResource("4_kqv0a")
+
+[node name="Building5" type="Node2D" parent="RacoonShenanigans/Node" unique_id=271762465]
+position = Vector2(2821, 790)
+
+[node name="Icon6" type="Sprite2D" parent="RacoonShenanigans/Node/Building5" unique_id=544657785]
+texture = ExtResource("4_kqv0a")
+
+[node name="Building6" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1935631079]
+position = Vector2(3371, 790)
+
+[node name="Icon7" type="Sprite2D" parent="RacoonShenanigans/Node/Building6" unique_id=203322927]
+texture = ExtResource("4_kqv0a")
+
+[node name="Building7" type="Node2D" parent="RacoonShenanigans/Node" unique_id=395868534]
+position = Vector2(3921, 790)
+
+[node name="Icon8" type="Sprite2D" parent="RacoonShenanigans/Node/Building7" unique_id=2098162864]
+texture = ExtResource("4_kqv0a")
+
+[node name="Building8" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1877977921]
+position = Vector2(4471, 790)
+
+[node name="Icon9" type="Sprite2D" parent="RacoonShenanigans/Node/Building8" unique_id=1506605532]
+texture = ExtResource("4_kqv0a")
+
+[node name="Building9" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1650988298]
+position = Vector2(5021, 790)
+
+[node name="Icon" type="Sprite2D" parent="RacoonShenanigans/Node/Building9" unique_id=100801796]
+texture = ExtResource("4_kqv0a")
+
+[node name="Building10" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1332741183]
+position = Vector2(5571, 790)
+
+[node name="Building11" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1741725105]
+position = Vector2(6121, 790)
+
+[node name="Building12" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1664351267]
+position = Vector2(6671, 790)
+
+[node name="Building13" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1337869108]
+position = Vector2(7221, 790)
+
+[node name="Building14" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1397654303]
+position = Vector2(7771, 790)
+
+[node name="Building15" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1242637779]
+position = Vector2(8321, 790)
+
+[node name="Camera2D" type="Camera2D" parent="RacoonShenanigans" unique_id=363492669]
+anchor_mode = 0
+limit_left = 0
+limit_right = 8500

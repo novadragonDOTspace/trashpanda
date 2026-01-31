@@ -13,6 +13,8 @@ signal visualize_new_trash(amount: Big)
 
 var current_amount: Big = Big.new(150)
 
+var latest_unlocked_racoon: int = 1
+
 var runtime_currencies: Array[RuntimeCurrencyEntry] = []
 
 class RuntimeCurrencyEntry:
