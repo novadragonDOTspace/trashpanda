@@ -39,7 +39,7 @@ func _ready() -> void:
 
 func _handle_pressed():
 	if game_state != null:
-		game_state.debug_add_dung_beetles(BigCat.BigNumber.from_int(count))
+		game_state.debug_add_dung_beetles(Big.new(count))
 	else:
 		push_error(\"can't add 1 dung beetle: no game state!\")
 
