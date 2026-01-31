@@ -1,26 +1,32 @@
 [gd_scene format=3 uid="uid://dolitsqsydk20"]
 
+[ext_resource type="Script" uid="uid://dya5oj4txqtb2" path="res://scripts/UI/RacoonUIButton.gd" id="1_7hbrq"]
 [ext_resource type="Texture2D" uid="uid://5l4at0bjr251" path="res://grafics/coon_placeholder.png" id="1_e2042"]
 
 [node name="VBoxContainer" type="VBoxContainer" unique_id=1457535689]
 custom_minimum_size = Vector2(200, 0)
 offset_right = 89.0
 offset_bottom = 194.0
+script = ExtResource("1_7hbrq")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=431592765]
 layout_mode = 2
 texture = ExtResource("1_e2042")
 expand_mode = 4
 
-[node name="Button" type="Button" parent="." unique_id=1038208848]
+[node name="SpeedIncreaseButton" type="Button" parent="." unique_id=1038208848]
 layout_mode = 2
 text = "Speed +1
 "
 
-[node name="Button2" type="Button" parent="." unique_id=1233256831]
+[node name="StrengthIncreaseButton" type="Button" parent="." unique_id=1233256831]
 layout_mode = 2
 text = "Power+1"
 
-[node name="Button3" type="Button" parent="." unique_id=1147420]
+[node name="CountIncreaseButton" type="Button" parent="." unique_id=1147420]
 layout_mode = 2
 text = "Amount+1"
+
+[connection signal="pressed" from="SpeedIncreaseButton" to="." method="_handle_speed_increase_press"]
+[connection signal="pressed" from="StrengthIncreaseButton" to="." method="_handle_strength_increase_press"]
+[connection signal="pressed" from="CountIncreaseButton" to="." method="_handle_count_increase_press"]

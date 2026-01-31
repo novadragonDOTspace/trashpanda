@@ -9,8 +9,6 @@ var racoon_template = preload("res://scenes/Presentation/Racoon.tscn")
 @export
 var racoon_start: Node2D
 @export
-var racoon_target: Node2D
-@export
 var racoon_targets: Array[Node2D]
 @export
 var racoon_container: Node
@@ -27,9 +25,12 @@ func _add_racoon(target_index: int) -> void:
 			racoons.append(racoon)
 			racoon.trash_source_index = target_index
 			racoon.global_position = racoon_start.global_position
-			racoon.current_target = racoon_target
+			racoon.current_target = racoon_targets[target_index]
 			racoon.current_total_distance = (racoon.current_target.global_position - racoon_start.global_position).length()
 			racoon.remaining_distance = racoon.current_total_distance
+func buy_racoon(target_index: int) -> void:
+	# TODO(rw): implement payment
+	_add_racoon(target_index)
 
 func _update_racoon_position(racoon: Racoon) -> void:
 	var percentage = 1 - racoon.remaining_distance / racoon.current_total_distance

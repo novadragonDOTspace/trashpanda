@@ -5,7 +5,6 @@ extends Node
 var trash_sources: TrashSourceDataContainer
 
 signal amount_changed(amount: Big)
-signal production_changed(amount: Big)
 signal cost_changed(index: int, new_cost: Big)
 signal count_changed(index: int, new_count: Big)
 

@@ -10,13 +10,12 @@
 [node name="GameState" type="Node" parent="." unique_id=1580689890]
 script = ExtResource("1_gp3kg")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=364343175 node_paths=PackedStringArray("game_state", "amount_label", "production_label")]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=364343175 node_paths=PackedStringArray("game_state", "amount_label")]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_3ir18")
 game_state = NodePath("../GameState")
 amount_label = NodePath("AmountContainer/Amount")
-production_label = NodePath("ProductionContainer/Production")
 
 [node name="AmountContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1026312464]
 layout_mode = 2
@@ -26,17 +25,6 @@ layout_mode = 2
 text = "Amount: "
 
 [node name="Amount" type="Label" parent="VBoxContainer/AmountContainer" unique_id=1857151609]
-layout_mode = 2
-text = "0"
-
-[node name="ProductionContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=2090656667]
-layout_mode = 2
-
-[node name="ProductionLabel" type="Label" parent="VBoxContainer/ProductionContainer" unique_id=1718910615]
-layout_mode = 2
-text = "Production: "
-
-[node name="Production" type="Label" parent="VBoxContainer/ProductionContainer" unique_id=1372517834]
 layout_mode = 2
 text = "0"
 
