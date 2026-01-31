@@ -9,17 +9,14 @@
 
 [node name="GameState" type="Node" parent="." unique_id=1580689890]
 script = ExtResource("1_gp3kg")
-currencies = ExtResource("2_71gls")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=364343175 node_paths=PackedStringArray("game_state", "amount_label", "production_label", "entry_element_container")]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=364343175 node_paths=PackedStringArray("game_state", "amount_label", "production_label")]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_3ir18")
 game_state = NodePath("../GameState")
 amount_label = NodePath("AmountContainer/Amount")
 production_label = NodePath("ProductionContainer/Production")
-entry_element_container = NodePath(".")
-currencies = ExtResource("2_71gls")
 
 [node name="AmountContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1026312464]
 layout_mode = 2
@@ -43,11 +40,13 @@ text = "Production: "
 layout_mode = 2
 text = "0"
 
-[node name="RacoonManager" type="Node" parent="." unique_id=704015668 node_paths=PackedStringArray("game_state", "racoon_start", "racoon_target", "racoon_container")]
+[node name="RacoonManager" type="Node" parent="." unique_id=704015668 node_paths=PackedStringArray("game_state", "racoon_start", "racoon_target", "racoon_targets", "racoon_container")]
 script = ExtResource("4_teipn")
+trash_sources = ExtResource("2_71gls")
 game_state = NodePath("../GameState")
 racoon_start = NodePath("RacoonStart")
 racoon_target = NodePath("RacoonTarget")
+racoon_targets = [NodePath("RacoonTarget")]
 racoon_container = NodePath("RacoonContainer")
 
 [node name="RacoonStart" type="Node2D" parent="RacoonManager" unique_id=1263762792]

@@ -2,7 +2,7 @@ class_name GameState
 extends Node
 
 @export
-var currencies: CurrencyDataContainer
+var trash_sources: TrashSourceDataContainer
 
 signal amount_changed(amount: Big)
 signal production_changed(amount: Big)
@@ -37,7 +37,7 @@ func increment_building_count(index: int, count: Big) -> void:
 func _trigger_cost_change(building_index: int) -> void:
 	cost_changed.emit(building_index, calculate_next_costs(building_index, Big.new(1)))
 func calculate_next_costs(building_index: int, count: Big) -> Big:
-	return currencies.calculate_next_costs(building_index, get_building_count(building_index), count, Big.new(115))
+	return trash_sources.calculate_next_costs(building_index, get_building_count(building_index), count, Big.new(115))
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

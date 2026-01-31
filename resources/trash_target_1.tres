@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrashSourceDataEntry" format=3 uid="uid://dfxrsyp2jh718"]
+
+[ext_resource type="Script" uid="uid://btln6oucxggur" path="res://scripts/resources/TrashSourceDataEntry.gd" id="1_c0sgf"]
+
+[resource]
+script = ExtResource("1_c0sgf")
+display_name = "Dung Beetle"
+production_mantissa = 2
+trash_collection_delay_base_mantissa = 5
+trash_delivery_delay_base_mantissa = 1
+metadata/_custom_type_script = "uid://btln6oucxggur"

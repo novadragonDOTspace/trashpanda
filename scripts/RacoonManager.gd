@@ -2,6 +2,8 @@ class_name RacoonManager
 extends Node
 
 @export
+var trash_sources: TrashSourceDataContainer
+@export
 var game_state: GameState
 var racoon_template = preload("res://scenes/Presentation/Racoon.tscn")
 @export
@@ -9,19 +11,25 @@ var racoon_start: Node2D
 @export
 var racoon_target: Node2D
 @export
+var racoon_targets: Array[Node2D]
+@export
 var racoon_container: Node
 var racoons: Array[Racoon] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var racoon = racoon_template.instantiate() as Racoon;
-	if racoon != null:
-		racoon_container.add_child(racoon)
-		racoons.append(racoon)
-		racoon.global_position = racoon_start.global_position
-		racoon.current_target = racoon_target
-		racoon.current_total_distance = (racoon.current_target.global_position - racoon_start.global_position).length()
-		racoon.remaining_distance = racoon.current_total_distance
+	_add_racoon(0)
+func _add_racoon(target_index: int) -> void:
+	if target_index >= 0 and target_index < racoon_targets.size() and target_index < trash_sources.entries.size():
+		var racoon = racoon_template.instantiate() as Racoon;
+		if racoon != null:
+			racoon_container.add_child(racoon)
+			racoons.append(racoon)
+			racoon.trash_source_index = target_index
+			racoon.global_position = racoon_start.global_position
+			racoon.current_target = racoon_target
+			racoon.current_total_distance = (racoon.current_target.global_position - racoon_start.global_position).length()
+			racoon.remaining_distance = racoon.current_total_distance
 
 func _update_racoon_position(racoon: Racoon) -> void:
 	var percentage = 1 - racoon.remaining_distance / racoon.current_total_distance
@@ -32,12 +40,14 @@ func _update_racoon_position(racoon: Racoon) -> void:
 	var now = start * (1 - percentage) + end * percentage
 	racoon.global_position = now
 
-func _get_racoon_target_wait_duration(racoon: Racoon) -> float:
-	# TODO replace with correct wait time
-	return 5
-func _get_racoon_deliver_wait_duration(racoon: Racoon) -> float:
-	# TODO replace with correct wait time
-	return 1
+func _get_racoon_target_wait_duration(racoon: Racoon) -> Big:
+	if racoon.trash_source_index >= 0 && racoon.trash_source_index < trash_sources.entries.size():
+		return trash_sources.entries[racoon.trash_source_index].get_trash_collection_delay_base()
+	return Big.new(0)
+func _get_racoon_deliver_wait_duration(racoon: Racoon) -> Big:
+	if racoon.trash_source_index >= 0 && racoon.trash_source_index < trash_sources.entries.size():
+		return trash_sources.entries[racoon.trash_source_index].get_trash_delivery_delay_base()
+	return Big.new(0)
 
 func _calculate_collected_tash(racoon: Racoon) -> Big:
 	return Big.new(1)
@@ -55,19 +65,16 @@ func _process(delta: float) -> void:
 				else:
 					racoon.remaining_distance = 0
 					racoon.is_waiting = true
-					if racoon.returning:
-						racoon.remaining_wait_duration = _get_racoon_deliver_wait_duration(racoon)
-					else:
-						racoon.remaining_wait_duration = _get_racoon_target_wait_duration(racoon)
+					racoon.remaining_wait_duration = _get_racoon_deliver_wait_duration(racoon) if racoon.returning else _get_racoon_target_wait_duration(racoon)
 					remaining_delta -= step_size / racoon.current_movement_speed
 					racoon.stop()
 			else:
-				if remaining_delta < racoon.remaining_wait_duration:
-					racoon.remaining_wait_duration -= remaining_delta
+				if remaining_delta < racoon.remaining_wait_duration.toFloat():
+					racoon.remaining_wait_duration = racoon.remaining_wait_duration.minus(remaining_delta)
 					remaining_delta = 0
 				else:
-					remaining_delta -= racoon.remaining_wait_duration
-					racoon.remaining_wait_duration = 0
+					remaining_delta -= racoon.remaining_wait_duration.toFloat()
+					racoon.remaining_wait_duration = Big.new(0)
 					racoon.is_waiting = false
 					if racoon.returning:
 						game_state.add_amount_with_popup(racoon.carried_trash)

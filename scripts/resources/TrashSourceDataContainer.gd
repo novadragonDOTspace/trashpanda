@@ -1,8 +1,8 @@
-class_name CurrencyDataContainer
+class_name TrashSourceDataContainer
 extends Resource
 
 @export
-var entries: Array[CurrencyDataEntry]
+var entries: Array[TrashSourceDataEntry]
 
 func get_cost(index: int) -> Big:
 	if index >= 0 && index < entries.size():
