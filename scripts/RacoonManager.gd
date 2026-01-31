@@ -1,5 +1,7 @@
 extends Node
 
+@export
+var game_state: GameState
 var racoon_template = preload("res://scenes/Presentation/Racoon.tscn")
 @export
 var racoon_start: Node2D
@@ -28,12 +30,42 @@ func _update_racoon_position(racoon: Racoon) -> void:
 	var now = start * (1 - percentage) + end * percentage
 	racoon.global_position = now
 
+func _get_racoon_target_wait_duration(racoon: Racoon) -> float:
+	# TODO replace with correct wait time
+	return 5
+func _get_racoon_deliver_wait_duration(racoon: Racoon) -> float:
+	# TODO replace with correct wait time
+	return 1
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
 	for racoon in racoons:
-		racoon.remaining_distance -= delta * racoon.current_movement_speed
-		if racoon.remaining_distance < 0:
-			racoon.returning = !racoon.returning
-			racoon.remaining_distance += (racoon_target.global_position - racoon_start.global_position).length()
+		var remaining_delta = delta
+		while remaining_delta > 0:
+			if !racoon.is_waiting:
+				var step_size = remaining_delta * racoon.current_movement_speed
+				if step_size < racoon.remaining_distance:
+					racoon.remaining_distance -= step_size
+					remaining_delta = 0
+				else:
+					racoon.remaining_distance = 0
+					racoon.is_waiting = true
+					if racoon.returning:
+						racoon.remaining_wait_duration = _get_racoon_deliver_wait_duration(racoon)
+					else:
+						racoon.remaining_wait_duration = _get_racoon_target_wait_duration(racoon)
+					remaining_delta -= step_size / racoon.current_movement_speed
+			else:
+				if remaining_delta < racoon.remaining_wait_duration:
+					racoon.remaining_wait_duration -= remaining_delta
+					remaining_delta = 0
+				else:
+					remaining_delta -= racoon.remaining_wait_duration
+					racoon.remaining_wait_duration = 0
+					racoon.is_waiting = false
+					if racoon.returning:
+						# TODO(rw): handle successful return
+						pass
+					racoon.returning = !racoon.returning
+					racoon.remaining_distance += (racoon_target.global_position - racoon_start.global_position).length()
 		_update_racoon_position(racoon)
