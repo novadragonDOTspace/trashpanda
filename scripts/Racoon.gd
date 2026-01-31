@@ -1,5 +1,5 @@
 class_name Racoon
-extends Node2D
+extends AnimatedSprite2D
 
 var current_total_distance: float = 100
 var remaining_distance: float = 0

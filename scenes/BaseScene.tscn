@@ -1,200 +1,132 @@
-[gd_scene format=3 uid="uid://d07d5idi716ol"]
+[gd_scene format=3 uid="uid://bgjmwye3d5lwp"]
 
-[ext_resource type="Script" uid="uid://jwoksw7umi2j" path="res://scripts/Racoon.gd" id="1_5m41d"]
 [ext_resource type="Script" uid="uid://dp0bakax16c6y" path="res://scripts/GameState.gd" id="1_or0ix"]
-[ext_resource type="PackedScene" uid="uid://6tcta58jpe37" path="res://scenes/Presentation/Racoon.tscn" id="3_kqv0a"]
+[ext_resource type="Texture2D" uid="uid://8tw83q50p706" path="res://grafics/Racoon Normal Walk Frames/frame_01.png" id="2_vem8k"]
+[ext_resource type="Texture2D" uid="uid://doypbokdgahkw" path="res://grafics/Racoon Normal Walk Frames/frame_02.png" id="3_00bx2"]
+[ext_resource type="Texture2D" uid="uid://bj7by2bltjrgf" path="res://grafics/Racoon Normal Walk Frames/frame_03.png" id="4_iflog"]
+[ext_resource type="Texture2D" uid="uid://dgp6ndyjlaffn" path="res://grafics/Racoon Normal Walk Frames/frame_04.png" id="5_8qtfq"]
+[ext_resource type="Texture2D" uid="uid://c8hague3cyqoi" path="res://grafics/Racoon Normal Walk Frames/frame_05.png" id="6_vbcts"]
+[ext_resource type="Texture2D" uid="uid://cxcbsvnhq2lv0" path="res://grafics/Racoon Normal Walk Frames/frame_06.png" id="7_4t82j"]
+[ext_resource type="Texture2D" uid="uid://b7e0j8ff5mabh" path="res://grafics/Racoon Normal Walk Frames/frame_07.png" id="8_p5ucw"]
+[ext_resource type="Texture2D" uid="uid://boptdaau1tdni" path="res://grafics/Racoon Normal Walk Frames/frame_08.png" id="9_ejrbo"]
+[ext_resource type="Texture2D" uid="uid://clk6pm3bt4vxv" path="res://grafics/Racoon Normal Walk Frames/frame_09.png" id="10_pf6so"]
+[ext_resource type="Texture2D" uid="uid://c1dde0sxxq2k5" path="res://grafics/Racoon Normal Walk Frames/frame_10.png" id="11_klkq4"]
+[ext_resource type="Texture2D" uid="uid://ory1il34an0k" path="res://grafics/Racoon Normal Walk Frames/frame_11.png" id="12_nl2x2"]
+[ext_resource type="Texture2D" uid="uid://fufrkx82i2rq" path="res://grafics/Racoon Normal Walk Frames/frame_12.png" id="13_o5l6e"]
+[ext_resource type="Texture2D" uid="uid://g68gg5wyuvq2" path="res://grafics/Racoon Normal Walk Frames/frame_13.png" id="14_7yvfv"]
+[ext_resource type="Texture2D" uid="uid://bph7ikfdwyn7c" path="res://grafics/Racoon Normal Walk Frames/frame_14.png" id="15_rbtpu"]
+[ext_resource type="Texture2D" uid="uid://daupmtvtpw25r" path="res://grafics/Racoon Normal Walk Frames/frame_15.png" id="16_68uiu"]
+[ext_resource type="Texture2D" uid="uid://cij15j1vo6xi" path="res://grafics/Racoon Normal Walk Frames/frame_16.png" id="17_dkar0"]
+[ext_resource type="Texture2D" uid="uid://dnqvqdvt012q6" path="res://grafics/Racoon Normal Walk Frames/frame_17.png" id="18_711gd"]
+[ext_resource type="Texture2D" uid="uid://ruqrwrxaem82" path="res://grafics/Racoon Normal Walk Frames/frame_18.png" id="19_rqrmd"]
+[ext_resource type="Texture2D" uid="uid://ddghui4jo8sjv" path="res://grafics/Racoon Normal Walk Frames/frame_19.png" id="20_gj0rx"]
+[ext_resource type="Texture2D" uid="uid://dyayovvxmpudn" path="res://grafics/Racoon Normal Walk Frames/frame_20.png" id="21_lhokl"]
+[ext_resource type="Texture2D" uid="uid://cstgv8hlitguc" path="res://grafics/Racoon Normal Walk Frames/frame_21.png" id="22_avj5q"]
+[ext_resource type="Texture2D" uid="uid://cxl04rcx5i2hf" path="res://grafics/Racoon Normal Walk Frames/frame_22.png" id="23_stbc4"]
+[ext_resource type="Texture2D" uid="uid://cvmlegcobylsf" path="res://grafics/Racoon Normal Walk Frames/frame_23.png" id="24_4ahff"]
+[ext_resource type="Texture2D" uid="uid://cavtvlanrrn1j" path="res://grafics/Racoon Normal Walk Frames/frame_24.png" id="25_a6tfl"]
+[ext_resource type="Script" uid="uid://cinsn3sejva5a" path="res://scripts/RacoonManager.gd" id="26_0nf0j"]
 
-[sub_resource type="GDScript" id="GDScript_or0ix"]
-script/source = "extends Button
+[sub_resource type="SpriteFrames" id="SpriteFrames_pq52b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vem8k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_00bx2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iflog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8qtfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vbcts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4t82j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p5ucw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ejrbo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_pf6so")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_klkq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nl2x2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_o5l6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_7yvfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_rbtpu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_68uiu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_dkar0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_711gd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_rqrmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_gj0rx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_lhokl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_avj5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_stbc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_4ahff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_a6tfl")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 12.0
+}]
 
-@export
-var game_state: GameState
-@export
-var seconds_count: int = 1
+[node name="BaseScene" type="Node2D" unique_id=630918859]
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	self.pressed.connect(_handle_button_press)
-
-func _handle_button_press():
-	if game_state != null:
-		game_state.debug_advance_seonds(seconds_count)
-	else:
-		push_error(\"can't advance 1s: no game state!\")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
-[sub_resource type="GDScript" id="GDScript_acqox"]
-script/source = "extends Button
-
-@export
-var count: int = 1
-@export
-var game_state: GameState
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pressed.connect(_handle_pressed)
-
-func _handle_pressed():
-	if game_state != null:
-		game_state.debug_add_dung_beetles(Big.new(count))
-	else:
-		push_error(\"can't add 1 dung beetle: no game state!\")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
-[sub_resource type="GDScript" id="GDScript_5m41d"]
-script/source = "extends Button
-
-@export
-var game_state: GameState
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	self.pressed.connect(_handle_button_press)
-
-func _handle_button_press():
-	if game_state != null:
-		game_state.debug_add_max_dung_beetles()
-	else:
-		push_error(\"can't advance 1s: no game state!\")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
-[node name="BaseScene" type="Node" unique_id=1752768841]
-script = ExtResource("1_5m41d")
-
-[node name="GameState" type="Node" parent="." unique_id=834622625]
+[node name="GameState" type="Node" parent="." unique_id=716284131]
 script = ExtResource("1_or0ix")
 metadata/_custom_type_script = "uid://dp0bakax16c6y"
 
-[node name="SoundManager" type="Node" parent="." unique_id=1713635025]
+[node name="SoundManager" type="Node" parent="." unique_id=1377440219]
 
-[node name="BGM" type="AudioStreamPlayer" parent="SoundManager" unique_id=704999374]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1384933982]
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1549998091]
+[node name="RacoonShenanigans" type="Node" parent="." unique_id=1723368633]
 
-[node name="Score" type="Label" parent="UI" unique_id=1890538180]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Trash collected: 999999999999999999999999"
+[node name="Racoon" type="Node2D" parent="RacoonShenanigans" unique_id=45572453]
 
-[node name="CoonButtons" type="ScrollContainer" parent="UI" unique_id=205856682]
-offset_left = 2.0
-offset_top = 42.0
-offset_right = 1922.0
-offset_bottom = 545.0
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RacoonShenanigans/Racoon" unique_id=1691182033]
+sprite_frames = SubResource("SpriteFrames_pq52b")
+animation = &"Walk"
+frame_progress = 0.24553873
+flip_h = true
 
-[node name="Buttons Container" type="HBoxContainer" parent="UI/CoonButtons" unique_id=108499260]
-layout_mode = 2
-
-[node name="VBoxContainer" parent="UI/CoonButtons/Buttons Container" unique_id=1457535689 instance=ExtResource("2_kqv0a")]
-layout_mode = 2
-
-[node name="VBoxContainer2" parent="UI/CoonButtons/Buttons Container" unique_id=994371796 instance=ExtResource("2_kqv0a")]
-layout_mode = 2
-
-[node name="VBoxContainer3" parent="UI/CoonButtons/Buttons Container" unique_id=278851052 instance=ExtResource("2_kqv0a")]
-layout_mode = 2
-
-[node name="RacoonArea" type="Node2D" parent="." unique_id=297686599]
-
-[node name="Ground" type="Sprite2D" parent="RacoonArea" unique_id=455439613]
-position = Vector2(4692.5, 1015)
-scale = Vector2(73.02344, 1)
-texture = ExtResource("3_kqv0a")
-
-[node name="Racoons" type="Node2D" parent="RacoonArea" unique_id=881647594]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RacoonArea/Racoons" unique_id=1788572409]
-sprite_frames = SubResource("SpriteFrames_tt3em")
-
-[node name="Buildings" type="Node2D" parent="RacoonArea" unique_id=1706656144]
-
-[node name="Home" type="Sprite2D" parent="RacoonArea/Buildings" unique_id=538693485]
-position = Vector2(96, 894)
-texture = ExtResource("3_kqv0a")
-
-[node name="Building1" type="Sprite2D" parent="RacoonArea/Buildings" unique_id=5159759]
-position = Vector2(550, 891)
-texture = ExtResource("3_kqv0a")
-
-[node name="Building2" type="Sprite2D" parent="RacoonArea/Buildings" unique_id=1566108950]
-position = Vector2(1100, 884)
-texture = ExtResource("3_kqv0a")
-
-[node name="Building3" type="Sprite2D" parent="RacoonArea/Buildings" unique_id=2081427120]
-position = Vector2(1650, 891)
-texture = ExtResource("3_kqv0a")
-
-[node name="Building4" type="Sprite2D" parent="RacoonArea/Buildings" unique_id=37287998]
-position = Vector2(2200, 884)
-texture = ExtResource("3_kqv0a")
-
-[node name="Building5" type="Sprite2D" parent="RacoonArea/Buildings" unique_id=2036464911]
-position = Vector2(2750, 884)
-texture = ExtResource("3_kqv0a")
-
-[node name="Building6" type="Sprite2D" parent="RacoonArea/Buildings" unique_id=1577629867]
-position = Vector2(3300, 884)
-texture = ExtResource("3_kqv0a")
-
-[node name="Building7" type="Sprite2D" parent="RacoonArea/Buildings" unique_id=1465387345]
-position = Vector2(3850, 884)
-texture = ExtResource("3_kqv0a")
-
-[node name="Building8" type="Sprite2D" parent="RacoonArea/Buildings" unique_id=1397359608]
-position = Vector2(4400, 884)
-texture = ExtResource("3_kqv0a")
-
-[node name="Building9" type="Sprite2D" parent="RacoonArea/Buildings" unique_id=4545610]
-position = Vector2(4950, 884)
-texture = ExtResource("3_kqv0a")
-
-[node name="Building10" type="Sprite2D" parent="RacoonArea/Buildings" unique_id=2092879909]
-position = Vector2(5500, 884)
-texture = ExtResource("3_kqv0a")
-
-[node name="Building11" type="Sprite2D" parent="RacoonArea/Buildings" unique_id=1902166044]
-position = Vector2(6050, 884)
-texture = ExtResource("3_kqv0a")
-
-[node name="Building12" type="Sprite2D" parent="RacoonArea/Buildings" unique_id=1704351000]
-position = Vector2(6600, 884)
-texture = ExtResource("3_kqv0a")
-
-[node name="Building13" type="Sprite2D" parent="RacoonArea/Buildings" unique_id=224270758]
-position = Vector2(7150, 884)
-texture = ExtResource("3_kqv0a")
-
-[node name="Building14" type="Sprite2D" parent="RacoonArea/Buildings" unique_id=1533732618]
-position = Vector2(7700, 884)
-texture = ExtResource("3_kqv0a")
-
-[node name="Building15" type="Sprite2D" parent="RacoonArea/Buildings" unique_id=389537174]
-position = Vector2(8250, 884)
-texture = ExtResource("3_kqv0a")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1607460597]
-top_level = true
-position = Vector2(965, 521)
-
-[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1343013672]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("5_tt3em")
-
-[node name="RacoonArea" type="Node" parent="." unique_id=995229874]
-
-[node name="Racoon" parent="." unique_id=1439575480 instance=ExtResource("3_kqv0a")]
-position = Vector2(360, 360)
+[node name="RacoonManager" type="Node" parent="RacoonShenanigans" unique_id=1965390102]
+script = ExtResource("26_0nf0j")
+metadata/_custom_type_script = "uid://cinsn3sejva5a"

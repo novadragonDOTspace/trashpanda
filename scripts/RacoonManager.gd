@@ -1,3 +1,4 @@
+class_name RacoonManager
 extends Node
 
 @export
@@ -70,4 +71,5 @@ func _process(delta: float) -> void:
 						pass
 					racoon.returning = !racoon.returning
 					racoon.remaining_distance += (racoon.current_target.global_position - racoon_start.global_position).length()
+					racoon.flip_h = !racoon.flip_h
 		_update_racoon_position(racoon)
