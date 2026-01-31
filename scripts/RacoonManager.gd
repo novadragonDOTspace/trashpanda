@@ -101,7 +101,9 @@ func _process(delta: float) -> void:
 					racoon.is_waiting = true
 					racoon.remaining_wait_duration = _get_racoon_deliver_wait_duration(racoon) if racoon.returning else _get_racoon_target_wait_duration(racoon)
 					remaining_delta -= step_size / racoon.current_movement_speed
-					racoon.stop()
+				
+					racoon.play("trash_digging")
+				
 			else:
 				if remaining_delta < racoon.remaining_wait_duration.toFloat():
 					racoon.remaining_wait_duration = racoon.remaining_wait_duration.minus(remaining_delta)
