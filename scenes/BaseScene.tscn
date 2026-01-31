@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://d07d5idi716ol"]
 
+[ext_resource type="Script" uid="uid://jwoksw7umi2j" path="res://scripts/Racoon.gd" id="1_5m41d"]
 [ext_resource type="Script" uid="uid://dp0bakax16c6y" path="res://scripts/GameState.gd" id="1_or0ix"]
+[ext_resource type="PackedScene" uid="uid://6tcta58jpe37" path="res://scenes/Presentation/Racoon.tscn" id="3_kqv0a"]
 
 [sub_resource type="GDScript" id="GDScript_or0ix"]
 script/source = "extends Button
@@ -70,10 +72,10 @@ func _process(delta: float) -> void:
 "
 
 [node name="BaseScene" type="Node" unique_id=1752768841]
+script = ExtResource("1_5m41d")
 
-[node name="GameState" type="Node" parent="." unique_id=834622625 node_paths=PackedStringArray("debug_label")]
+[node name="GameState" type="Node" parent="." unique_id=834622625]
 script = ExtResource("1_or0ix")
-debug_label = NodePath("../UI/DebugInfo/Label")
 metadata/_custom_type_script = "uid://dp0bakax16c6y"
 
 [node name="SoundManager" type="Node" parent="." unique_id=1713635025]
@@ -229,3 +231,6 @@ script = SubResource("GDScript_5m41d")
 game_state = NodePath("../../../GameState")
 
 [node name="RacoonArea" type="Node" parent="." unique_id=995229874]
+
+[node name="Racoon" parent="." unique_id=1439575480 instance=ExtResource("3_kqv0a")]
+position = Vector2(360, 360)

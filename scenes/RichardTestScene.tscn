@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dp0bakax16c6y" path="res://scripts/GameState.gd" id="1_gp3kg"]
 [ext_resource type="Resource" uid="uid://bvhlqylnipmq7" path="res://resources/currencies.tres" id="2_71gls"]
 [ext_resource type="Script" uid="uid://bckvjmv4qttbu" path="res://scripts/StatePrersentation.gd" id="3_3ir18"]
+[ext_resource type="Script" uid="uid://cinsn3sejva5a" path="res://scripts/RacoonManager.gd" id="4_teipn"]
 
 [sub_resource type="GDScript" id="GDScript_gp3kg"]
 script/source = "extends Button
@@ -33,12 +34,11 @@ func _process(delta: float) -> void:
 script = ExtResource("1_gp3kg")
 currencies = ExtResource("2_71gls")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=364343175 node_paths=PackedStringArray("game_state", "debug_label", "amount_label", "production_label", "entry_element_container")]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=364343175 node_paths=PackedStringArray("game_state", "amount_label", "production_label", "entry_element_container")]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_3ir18")
 game_state = NodePath("../GameState")
-debug_label = NodePath("")
 amount_label = NodePath("AmountContainer/Amount")
 production_label = NodePath("ProductionContainer/Production")
 entry_element_container = NodePath(".")
@@ -100,8 +100,21 @@ script = SubResource("GDScript_gp3kg")
 game_state = NodePath("../../GameState")
 seconds_count = 10000000
 
+[node name="RacoonManager" type="Node" parent="." unique_id=704015668 node_paths=PackedStringArray("racoon_start", "racoon_target", "racoon_container")]
+script = ExtResource("4_teipn")
+racoon_start = NodePath("RacoonStart")
+racoon_target = NodePath("RacoonTarget")
+racoon_container = NodePath("RacoonContainer")
+
+[node name="RacoonStart" type="Node2D" parent="RacoonManager" unique_id=1263762792]
+position = Vector2(0, 720)
+
+[node name="RacoonTarget" type="Node2D" parent="RacoonManager" unique_id=1752620657]
+position = Vector2(720, 720)
+
+[node name="RacoonContainer" type="Node" parent="RacoonManager" unique_id=1062512359]
+
 [connection signal="amount_changed" from="GameState" to="VBoxContainer" method="handle_amount_change"]
 [connection signal="cost_changed" from="GameState" to="VBoxContainer" method="handle_cost_update"]
 [connection signal="count_changed" from="GameState" to="VBoxContainer" method="handle_building_count_update"]
-[connection signal="debug_text_changed" from="GameState" to="VBoxContainer" method="handle_debug_text_update"]
 [connection signal="production_changed" from="GameState" to="VBoxContainer" method="handle_production_change"]

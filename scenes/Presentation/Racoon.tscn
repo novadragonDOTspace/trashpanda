@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://6tcta58jpe37"]
+
+[ext_resource type="Texture2D" uid="uid://c281uciqmnd78" path="res://icon.svg" id="1_4uig6"]
+[ext_resource type="Script" uid="uid://jwoksw7umi2j" path="res://scripts/Racoon.gd" id="2_no0bb"]
+
+[node name="Racoon" type="Node2D" unique_id=1439575480]
+script = ExtResource("2_no0bb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1876178482]
+texture = ExtResource("1_4uig6")
