@@ -122,6 +122,7 @@ metadata/_custom_type_script = "uid://dp0bakax16c6y"
 [node name="Racoon" type="Node2D" parent="RacoonShenanigans" unique_id=45572453]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RacoonShenanigans/Racoon" unique_id=1691182033]
+position = Vector2(452, 308)
 sprite_frames = SubResource("SpriteFrames_pq52b")
 animation = &"Walk"
 frame_progress = 0.24553873
