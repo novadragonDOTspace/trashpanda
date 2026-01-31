@@ -23,11 +23,15 @@ var speed_upgrade_counts: Array[int] = []
 var strength_upgrade_counts: Array[int] = []
 var max_level: int = 1
 
-signal racoon_count_changed(level: int, count: Big)
+signal racoon_count_changed(trash_index: int, count: Big)
+signal racoon_price_changed(trash_index: int, price: Big)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_add_racoon(0, 1)
+	var zero = Big.new(0)
+	for i in range(trash_sources.entries.size()):
+		racoon_price_changed.emit(i, get_next_racoon_cost_by_count(i, zero))
 	_recount_all_racoons()
 func _add_racoon(target_index: int, level: int) -> void:
 	if target_index >= 0 and target_index < racoon_targets.size() and target_index < trash_sources.entries.size():
@@ -81,7 +85,9 @@ func _recount_all_racoons() -> void:
 			count_multipliers.append(multiplier)
 		counts[index] = counts[index].plus(count_multipliers[level_index])
 	for i in range(counts.size()):
-		racoon_count_changed.emit(i, counts[i])
+		var count = counts[i]
+		racoon_count_changed.emit(i, count)
+		racoon_price_changed.emit(i, get_next_racoon_cost_by_count(i, count))
 
 func _get_collection_position(trash_index: int) -> Vector2:
 	if trash_index >= 0:
@@ -94,6 +100,8 @@ func _get_collection_position(trash_index: int) -> Vector2:
 func get_next_racoon_cost(trash_index: int) -> Big:
 	# TODO(rw): count_racoons_per_trash doesn't consider the combine_count and underreports the count
 	var count = count_racoons_per_trash(trash_index)
+	return trash_sources.calculate_next_costs(trash_index, count, Big.new(1), Big.new(115))
+func get_next_racoon_cost_by_count(trash_index: int, count: Big) -> Big:
 	return trash_sources.calculate_next_costs(trash_index, count, Big.new(1), Big.new(115))
 func buy_racoon(target_index: int) -> void:
 	var cost = get_next_racoon_cost(target_index)
@@ -167,7 +175,7 @@ func _get_racoon_deliver_wait_duration(racoon: Racoon) -> Big:
 		return trash_sources.entries[racoon.trash_source_index].get_trash_delivery_delay_base()
 	return Big.new(0)
 
-func _calculate_collected_tash(racoon: Racoon) -> Big:
+func _calculate_collected_trash(racoon: Racoon) -> Big:
 	return Big.new(1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -202,7 +210,7 @@ func _process(delta: float) -> void:
 						racoon.carried_trash = Big.new(0)
 					else:
 						racoon.play("trashwalk")
-						racoon.carried_trash = _calculate_collected_tash(racoon)
+						racoon.carried_trash = _calculate_collected_trash(racoon)
 					racoon.returning = !racoon.returning
 					racoon.remaining_distance += (racoon.current_target.global_position - racoon_start.global_position).length()
 					racoon.flip_sprites()

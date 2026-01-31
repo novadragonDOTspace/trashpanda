@@ -36,8 +36,9 @@ func _process(_delta: float) -> void:
 func handle_count_change(trash_index: int, racoon_count: Big) -> void:
 	if trash_index >= 0 and trash_index < elements.size():
 		elements[trash_index].set_racoon_count(racoon_count)
-func handle_cost_update(index: int, new_cost: Big) -> void:
-	pass
+func handle_cost_update(trash_index: int, new_cost: Big) -> void:
+	if trash_index >= 0 && trash_index < elements.size():
+		elements[trash_index].set_racoon_cost(new_cost)
 func handle_building_count_update(index: int, new_count: Big) -> void:
 	pass
 
