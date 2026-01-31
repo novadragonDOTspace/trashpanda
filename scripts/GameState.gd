@@ -34,8 +34,6 @@ func increment_building_count(index: int, count: Big) -> void:
 	var existing = get_building_count(index)
 	set_building_count(index, existing.plus(count))
 
-static func format_big_number(number: Big) -> String:
-	return number.toAA(true)
 func _trigger_cost_change(building_index: int) -> void:
 	cost_changed.emit(building_index, calculate_next_costs(building_index, Big.new(1)))
 func calculate_next_costs(building_index: int, count: Big) -> Big:
