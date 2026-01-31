@@ -9,6 +9,8 @@ signal production_changed(amount: Big)
 signal cost_changed(index: int, new_cost: Big)
 signal count_changed(index: int, new_count: Big)
 
+signal visualize_new_trash(amount: Big)
+
 var current_amount: Big = Big.new(150)
 var current_production: Big = Big.new(0)
 
@@ -43,9 +45,10 @@ func _ready() -> void:
 	_recalc_production()
 	amount_changed.emit(current_amount)
 
-func add_amount(amount: Big) -> void:
+func add_amount_with_popup(amount: Big) -> void:
 	current_amount = current_amount.plus(amount)
 	amount_changed.emit(current_amount)
+	visualize_new_trash.emit(amount)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

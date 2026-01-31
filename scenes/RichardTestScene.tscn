@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://bvhlqylnipmq7" path="res://resources/currencies.tres" id="2_71gls"]
 [ext_resource type="Script" uid="uid://bckvjmv4qttbu" path="res://scripts/StatePrersentation.gd" id="3_3ir18"]
 [ext_resource type="Script" uid="uid://cinsn3sejva5a" path="res://scripts/RacoonManager.gd" id="4_teipn"]
+[ext_resource type="PackedScene" uid="uid://dhs4vydsptve6" path="res://scenes/UI/AmountPopup.tscn" id="5_lq8bq"]
 
 [sub_resource type="GDScript" id="GDScript_gp3kg"]
 script/source = "extends Button
@@ -115,7 +116,14 @@ position = Vector2(720, 720)
 
 [node name="RacoonContainer" type="Node" parent="RacoonManager" unique_id=1062512359]
 
+[node name="AmountPopup" parent="." unique_id=779252090 instance=ExtResource("5_lq8bq")]
+offset_left = 453.0
+offset_top = 474.0
+offset_right = 453.0
+offset_bottom = 474.0
+
 [connection signal="amount_changed" from="GameState" to="VBoxContainer" method="handle_amount_change"]
 [connection signal="cost_changed" from="GameState" to="VBoxContainer" method="handle_cost_update"]
 [connection signal="count_changed" from="GameState" to="VBoxContainer" method="handle_building_count_update"]
 [connection signal="production_changed" from="GameState" to="VBoxContainer" method="handle_production_change"]
+[connection signal="visualize_new_trash" from="GameState" to="VBoxContainer" method="handle_amount_visualization"]

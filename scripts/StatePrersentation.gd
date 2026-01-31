@@ -13,6 +13,8 @@ var currencies: CurrencyDataContainer
 var entry_element_template = preload("res://scenes/UI/BuildingElement.tscn")
 var entry_elements: Array[BuildingElement] = []
 
+var amount_popup_template = preload("res://scenes/UI/AmountPopup.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(currencies.entries.size()):
@@ -42,3 +44,9 @@ func handle_production_change(amount: Big) -> void:
 	production_label.text = amount.toAA(true)
 func handle_amount_change(amount: Big) -> void:
 	amount_label.text = amount.toAA(true)
+
+func handle_amount_visualization(amount: Big) -> void:
+	var instance = amount_popup_template.instantiate() as AmountPopup
+	self.add_child(instance)
+	instance.set_amount(amount)
+	instance.global_position = Vector2(360, 360)

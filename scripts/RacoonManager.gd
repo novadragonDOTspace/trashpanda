@@ -39,6 +39,9 @@ func _get_racoon_deliver_wait_duration(racoon: Racoon) -> float:
 	# TODO replace with correct wait time
 	return 1
 
+func _calculate_collected_tash(racoon: Racoon) -> Big:
+	return Big.new(1)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	for racoon in racoons:
@@ -66,11 +69,12 @@ func _process(delta: float) -> void:
 					racoon.remaining_wait_duration = 0
 					racoon.is_waiting = false
 					if racoon.returning:
-						# TODO(rw): handle successful return
-						game_state.add_amount(Big.new(1))
+						game_state.add_amount_with_popup(racoon.carried_trash)
 						racoon.play("trashwalk")
+						racoon.carried_trash = Big.new(0)
 					else:
 						racoon.play("walk")
+						racoon.carried_trash = _calculate_collected_tash(racoon)
 					racoon.returning = !racoon.returning
 					racoon.remaining_distance += (racoon.current_target.global_position - racoon_start.global_position).length()
 					racoon.flip_h = !racoon.flip_h

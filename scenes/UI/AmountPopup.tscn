@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dhs4vydsptve6"]
+
+[ext_resource type="Script" uid="uid://dxleuh13eq3f7" path="res://scripts/Lifetime.gd" id="1_1yw2b"]
+[ext_resource type="Script" uid="uid://k2it2rtjc1un" path="res://scripts/UI/AmountPopup.gd" id="1_gmupv"]
+[ext_resource type="Script" uid="uid://b3ksmfm8dgj7i" path="res://scripts/LinearMovement.gd" id="2_u0u0v"]
+[ext_resource type="Script" uid="uid://bu5ibu06dul6x" path="res://scripts/UIFade.gd" id="3_drxb8"]
+[ext_resource type="Curve" uid="uid://bveui6q0ybj3t" path="res://scenes/UI/PopupFadeCurve.tres" id="4_bov25"]
+
+[node name="AmountPopup" type="Control" unique_id=779252090 node_paths=PackedStringArray("label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gmupv")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="." unique_id=309554969]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "+25"
+
+[node name="Lifetime" type="Node" parent="." unique_id=1201020367 node_paths=PackedStringArray("auto_destroy_target")]
+script = ExtResource("1_1yw2b")
+lifetime = 2.0
+auto_destroy_on_lifetime_end = true
+auto_destroy_target = NodePath("..")
+
+[node name="Movement" type="Node" parent="." unique_id=1007637463 node_paths=PackedStringArray("target_node")]
+script = ExtResource("2_u0u0v")
+movement_speed = 50.0
+target_node = NodePath("..")
+
+[node name="FadeCurve" type="Node" parent="." unique_id=474359200 node_paths=PackedStringArray("target")]
+script = ExtResource("3_drxb8")
+fadeCurve = ExtResource("4_bov25")
+fade_duration = 2.0
+target = NodePath("..")
