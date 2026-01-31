@@ -108,4 +108,5 @@ text = "+max dung beetle"
 script = SubResource("GDScript_3ir18")
 game_state = NodePath("../../GameState")
 
+[connection signal="cost_changed" from="GameState" to="VBoxContainer" method="handle_cost_update"]
 [connection signal="debug_text_changed" from="GameState" to="VBoxContainer" method="handle_debug_text_update"]

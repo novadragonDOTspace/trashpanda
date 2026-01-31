@@ -9,7 +9,7 @@ var entry_element_container: Node
 @export
 var currencies: CurrencyDataContainer
 var entry_element_template = preload("res://scenes/UI/BuildingElement.tscn")
-var entry_elements: Array[Node] = []
+var entry_elements: Array[BuildingElement] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,7 +18,10 @@ func _ready() -> void:
 		var instance = entry_element_template.instantiate() as BuildingElement
 		entry_element_container.add_child(instance)
 		instance.set_display_name(entry.display_name)
+		instance.set_cost(entry.get_big_cost())
+		instance.set_production(entry.get_big_production())
 		instance.buy_button_pressed.connect(func(count): _handle_buy_button_press(i, count))
+		entry_elements.append(instance)
 func _handle_buy_button_press(building_index: int, count: int) -> void:
 	game_state.buy_building(building_index, Big.new(count))
 
@@ -29,3 +32,7 @@ func _process(delta: float) -> void:
 func handle_debug_text_update(text: String) -> void:
 	if debug_label != null:
 		debug_label.text = text
+
+func handle_cost_update(index: int, new_cost: Big) -> void:
+	if index >= 0 and index < entry_elements.size():
+		entry_elements[index].set_cost(new_cost)
