@@ -9,13 +9,17 @@
 
 [node name="GameState" type="Node" parent="." unique_id=1580689890]
 script = ExtResource("1_gp3kg")
+trash_sources = ExtResource("2_71gls")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=364343175 node_paths=PackedStringArray("game_state", "amount_label")]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=364343175 node_paths=PackedStringArray("game_state", "racoon_manager", "amount_label", "amount_popup_container")]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_3ir18")
+trash_source_data = ExtResource("2_71gls")
 game_state = NodePath("../GameState")
+racoon_manager = NodePath("../RacoonManager")
 amount_label = NodePath("AmountContainer/Amount")
+amount_popup_container = NodePath("AmountContainer/Amount")
 
 [node name="AmountContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1026312464]
 layout_mode = 2
