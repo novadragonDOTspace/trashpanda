@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://l55ldl8se7im"]
+
+[ext_resource type="Texture2D" uid="uid://5l4at0bjr251" path="res://grafics/coon_placeholder.png" id="1_e2042"]
+
+[node name="VBoxContainer" type="VBoxContainer" unique_id=1457535689]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=431592765]
+layout_mode = 2
+texture = ExtResource("1_e2042")
+expand_mode = 4
+
+[node name="Button" type="Button" parent="." unique_id=1038208848]
+layout_mode = 2
+text = "Speed +1
+"
+
+[node name="Button2" type="Button" parent="." unique_id=1233256831]
+layout_mode = 2
+text = "Power+1"
+
+[node name="Button3" type="Button" parent="." unique_id=1147420]
+layout_mode = 2
+text = "Amount+1"
