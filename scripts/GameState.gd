@@ -12,7 +12,6 @@ signal count_changed(index: int, new_count: Big)
 signal visualize_new_trash(amount: Big)
 
 var current_amount: Big = Big.new(150)
-var current_production: Big = Big.new(0)
 
 var runtime_currencies: Array[RuntimeCurrencyEntry] = []
 
@@ -42,7 +41,6 @@ func calculate_next_costs(building_index: int, count: Big) -> Big:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_recalc_production()
 	amount_changed.emit(current_amount)
 
 func add_amount_with_popup(amount: Big) -> void:
@@ -51,15 +49,8 @@ func add_amount_with_popup(amount: Big) -> void:
 	visualize_new_trash.emit(amount)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	advance_seonds(Big.new(delta))
-
-func debug_advance_seonds(seconds: int):
-	current_amount = current_amount.plus(current_production.multiply(seconds))
-	amount_changed.emit(current_amount)
-func advance_seonds(seconds: Big):
-	current_amount = current_amount.plus(current_production.multiply(seconds))
-	amount_changed.emit(current_amount)
+func _process(_delta: float) -> void:
+	pass
 
 func buy_building(building_index: int, count: Big) -> void:
 	var cost = calculate_next_costs(building_index, count)
@@ -67,18 +58,4 @@ func buy_building(building_index: int, count: Big) -> void:
 		current_amount = current_amount.minus(cost)
 		amount_changed.emit(current_amount)
 		increment_building_count(building_index, count)
-		_recalc_production()
 		_trigger_cost_change(building_index)
-
-func debug_add_max_dung_beetles():
-	var count = current_amount.divide(currencies.get_cost(0))
-	current_amount = current_amount.minus(currencies.get_cost(0).multiply(count))
-	increment_building_count(0, count)
-	_recalc_production()
-
-
-func _recalc_production():
-	current_production = Big.new(0)
-	for i in range(runtime_currencies.size()):
-		current_production = current_production.plus(get_building_count(i).multiply(currencies.get_production(i)))
-	production_changed.emit(current_production)
