@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CurrencyDataEntry" format=3 uid="uid://dfxrsyp2jh718"]
+
+[ext_resource type="Script" uid="uid://btln6oucxggur" path="res://scripts/resources/CurrencyDataEntry.gd" id="1_y6c1j"]
+
+[resource]
+script = ExtResource("1_y6c1j")
+display_name = "Dung Beetle"
+base_price = 100
+production = 10
+metadata/_custom_type_script = "uid://btln6oucxggur"
