@@ -5,6 +5,12 @@
 [ext_resource type="Resource" uid="uid://bvhlqylnipmq7" path="res://resources/currencies.tres" id="3_2xv5m"]
 [ext_resource type="Script" uid="uid://cinsn3sejva5a" path="res://scripts/RacoonManager.gd" id="3_to00c"]
 [ext_resource type="Texture2D" uid="uid://c281uciqmnd78" path="res://icon.svg" id="4_q5fso"]
+[ext_resource type="Script" uid="uid://c4gwgp2i3sc5f" path="res://scenes/home.gd" id="5_vm3p4"]
+[ext_resource type="Texture2D" uid="uid://bi6wj3ytcuou2" path="res://grafics/trash_fortress/HomeBase_base.png" id="6_82yc7"]
+[ext_resource type="Texture2D" uid="uid://c42q8u14l0ccg" path="res://grafics/trash_fortress/HomeBase_1.png" id="7_c5i6v"]
+[ext_resource type="Texture2D" uid="uid://c6l0omxnsldf1" path="res://grafics/trash_fortress/HomeBase_2.png" id="8_t0jx8"]
+[ext_resource type="Texture2D" uid="uid://biewsgje4qg3v" path="res://grafics/trash_fortress/HomeBase_4.png" id="9_8yikq"]
+[ext_resource type="Texture2D" uid="uid://wruhfb6mtl72" path="res://grafics/trash_fortress/HomeBase_full.png" id="10_i4yul"]
 
 [node name="BaseScene" type="Node2D" unique_id=630918859]
 
@@ -58,11 +64,15 @@ metadata/_custom_type_script = "uid://cinsn3sejva5a"
 
 [node name="Home" type="Node2D" parent="RacoonShenanigans/Node" unique_id=914785539]
 position = Vector2(71, 790)
+script = ExtResource("5_vm3p4")
+home_sprites = Array[CompressedTexture2D]([ExtResource("6_82yc7"), ExtResource("7_c5i6v"), ExtResource("8_t0jx8"), ExtResource("9_8yikq"), ExtResource("10_i4yul")])
 
 [node name="Icon" type="Sprite2D" parent="RacoonShenanigans/Node/Home" unique_id=81623975]
-texture = ExtResource("4_q5fso")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_82yc7")
 
 [node name="Building1" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1301395371]
+visible = false
 position = Vector2(621, 790)
 
 [node name="Icon2" type="Sprite2D" parent="RacoonShenanigans/Node/Building1" unique_id=2037725757]
