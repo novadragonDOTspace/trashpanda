@@ -60,6 +60,7 @@ func _process(delta: float) -> void:
 					else:
 						racoon.remaining_wait_duration = _get_racoon_target_wait_duration(racoon)
 					remaining_delta -= step_size / racoon.current_movement_speed
+					racoon.stop()
 			else:
 				if remaining_delta < racoon.remaining_wait_duration:
 					racoon.remaining_wait_duration -= remaining_delta
@@ -70,10 +71,10 @@ func _process(delta: float) -> void:
 					racoon.is_waiting = false
 					if racoon.returning:
 						game_state.add_amount_with_popup(racoon.carried_trash)
-						racoon.play("trashwalk")
+						racoon.play("walk")
 						racoon.carried_trash = Big.new(0)
 					else:
-						racoon.play("walk")
+						racoon.play("trashwalk")
 						racoon.carried_trash = _calculate_collected_tash(racoon)
 					racoon.returning = !racoon.returning
 					racoon.remaining_distance += (racoon.current_target.global_position - racoon_start.global_position).length()
