@@ -5,7 +5,7 @@ var trash_source_data: TrashSourceDataContainer
 @export
 var game_state: GameState
 @export
-var racooon_manager: RacoonManager
+var racoon_manager: RacoonManager
 @export
 var amount_label: Label
 @export
@@ -22,9 +22,9 @@ func _ready() -> void:
 	for i in range(trash_source_data.entries.size()):
 		var instance = element_template.instantiate() as RacoonUIButton
 		container.add_child(instance)
-		instance.strength_increase_pressed.connect(func(): pass )
-		instance.speed_increase_pressed.connect(func(): pass )
-		instance.count_increase_pressed.connect(func(): racooon_manager.buy_racoon(i))
+		instance.strength_increase_pressed.connect(func(): racoon_manager.increment_strength_upgrade_count(i))
+		instance.speed_increase_pressed.connect(func(): racoon_manager.increment_speed_upgrade_count(i))
+		instance.count_increase_pressed.connect(func(): racoon_manager.buy_racoon(i))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

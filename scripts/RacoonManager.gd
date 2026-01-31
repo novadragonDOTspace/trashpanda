@@ -13,6 +13,8 @@ var racoon_targets: Array[Node2D]
 @export
 var racoon_container: Node
 var racoons: Array[Racoon] = []
+var speed_upgrade_counts: Array[int] = []
+var strength_upgrade_counts: Array[int] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,6 +33,26 @@ func _add_racoon(target_index: int) -> void:
 func buy_racoon(target_index: int) -> void:
 	# TODO(rw): implement payment
 	_add_racoon(target_index)
+
+func _safe_get_from_array(index: int, array: Array[int], fallback: int = 0) -> int:
+	if index >= 0 and index < array.size():
+		return array[index]
+	return fallback
+func _safe_set_in_array(index: int, array: Array[int], value: int, default: int = 0) -> void:
+	if index >= 0:
+		while index >= array.size():
+			array.append(default)
+		array[index] = value
+func _safe_increment_in_array(index: int, array: Array[int], increment: int, default: int = 0) -> void:
+	_safe_set_in_array(index, array, _safe_get_from_array(index, array) + increment, default)
+func get_speed_upgrade_count(trash_index: int) -> int:
+	return _safe_get_from_array(trash_index, speed_upgrade_counts)
+func increment_speed_upgrade_count(trash_index: int, increment: int = 1) -> void:
+	_safe_increment_in_array(trash_index, speed_upgrade_counts, increment)
+func get_strength_upgrade_count(trash_index: int) -> int:
+	return _safe_get_from_array(trash_index, speed_upgrade_counts)
+func increment_strength_upgrade_count(trash_index: int, increment: int = 1) -> void:
+	_safe_increment_in_array(trash_index, speed_upgrade_counts, increment)
 
 func _update_racoon_position(racoon: Racoon) -> void:
 	var percentage = 1 - racoon.remaining_distance / racoon.current_total_distance

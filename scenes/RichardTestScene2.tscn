@@ -15,14 +15,14 @@ metadata/_custom_type_script = "uid://dp0bakax16c6y"
 
 [node name="SoundManager" type="Node" parent="." unique_id=1377440219]
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1384933982 node_paths=PackedStringArray("game_state", "racooon_manager", "amount_label", "container", "amount_popup_container")]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1384933982 node_paths=PackedStringArray("game_state", "racoon_manager", "amount_label", "container", "amount_popup_container")]
 script = ExtResource("2_to00c")
 trash_source_data = ExtResource("3_2xv5m")
 game_state = NodePath("../GameState")
-racooon_manager = NodePath("../RacoonShenanigans/RacoonManager")
+racoon_manager = NodePath("../RacoonShenanigans/RacoonManager")
 amount_label = NodePath("Label")
 container = NodePath("ScrollContainer/HBoxContainer")
-amount_popup_container = NodePath("..")
+amount_popup_container = NodePath("../RacoonShenanigans/AmoountPopupStart")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI" unique_id=417314945]
 offset_right = 1914.0
@@ -139,6 +139,9 @@ position = Vector2(8321, 790)
 anchor_mode = 0
 limit_left = 0
 limit_right = 8500
+
+[node name="AmoountPopupStart" type="Node2D" parent="RacoonShenanigans" unique_id=1921528007]
+position = Vector2(71, 700)
 
 [node name="AmountPopup" parent="." unique_id=779252090 instance=ExtResource("6_to00c")]
 offset_left = 569.0
