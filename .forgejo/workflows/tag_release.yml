@@ -1,0 +1,37 @@
+name: "godot build artifacts"
+on:
+  push:
+    tags:
+      - "*"
+
+# NOTE: If your `project.godot` is at the repository root, set `PROJECT_PATH` below to ".".
+
+env:
+  GODOT_VERSION: 4.6-stable
+  EXPORT_NAME: dungeongame
+  PROJECT_PATH: ./
+
+jobs:
+  build:
+    runs-on: docker
+    strategy:
+      matrix:
+        platform: ["Windows Desktop","Linux","macOS","Web"]
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v6
+
+      - name: Install Godot
+        uses: https://git.gay/novadragon/godot-actions/install-godot@v2.5
+        with:
+          godot-version: ${{ env.GODOT_VERSION }}
+          install-templates: true
+        id: install-godot
+
+      - name: Build and upload artifacts for all platforms
+        uses: https://git.gay/novadragon/godot-actions/build-godot@v2.5
+        with:
+          godot-executable: ${{ steps.install-godot.outputs.godot-executable }}
+          game-name: ${{env.EXPORT_NAME}}
+          platform: ${{matrix.platform}}
+          version_string: ${{inputs.version}}
