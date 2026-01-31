@@ -1,8 +1,84 @@
 [gd_scene format=3 uid="uid://d07d5idi716ol"]
 
+[ext_resource type="Script" uid="uid://dp0bakax16c6y" path="res://scripts/GameState.gd" id="1_or0ix"]
+
+[sub_resource type="GDScript" id="GDScript_or0ix"]
+script/source = "extends Button
+
+@export
+var game_state: GameState
+@export
+var seconds_count: int = 1
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	self.pressed.connect(_handle_button_press)
+
+func _handle_button_press():
+	if game_state != null:
+		game_state.debug_advance_seonds(seconds_count)
+	else:
+		push_error(\"can't advance 1s: no game state!\")
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_acqox"]
+script/source = "extends Button
+
+@export
+var count: int = 1
+@export
+var game_state: GameState
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pressed.connect(_handle_pressed)
+
+func _handle_pressed():
+	if game_state != null:
+		game_state.debug_add_dung_beetles(BigCat.BigNumber.from_int(count))
+	else:
+		push_error(\"can't add 1 dung beetle: no game state!\")
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_5m41d"]
+script/source = "extends Button
+
+@export
+var game_state: GameState
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	self.pressed.connect(_handle_button_press)
+
+func _handle_button_press():
+	if game_state != null:
+		game_state.debug_add_max_dung_beetles()
+	else:
+		push_error(\"can't advance 1s: no game state!\")
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="BaseScene" type="Node" unique_id=1752768841]
 
+[node name="GameState" type="Node" parent="." unique_id=834622625 node_paths=PackedStringArray("debug_label")]
+script = ExtResource("1_or0ix")
+debug_label = NodePath("../UI/DebugInfo/Label")
+metadata/_custom_type_script = "uid://dp0bakax16c6y"
+
 [node name="SoundManager" type="Node" parent="." unique_id=1713635025]
+
+[node name="BGM" type="AudioStreamPlayer" parent="SoundManager" unique_id=704999374]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1549998091]
 
@@ -11,13 +87,79 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -123.0
+offset_left = -320.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/ScrollContainer" unique_id=1007219653]
+[node name="DebugInfo" type="VBoxContainer" parent="UI" unique_id=126094108]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 165.0
+offset_bottom = 344.0
+
+[node name="Label" type="Label" parent="UI/DebugInfo" unique_id=1469807938]
 layout_mode = 2
+text = "0"
 
-[node name="Racoon" type="Node" parent="." unique_id=995229874]
+[node name="Advance1sButton" type="Button" parent="UI/DebugInfo" unique_id=199439675 node_paths=PackedStringArray("game_state")]
+layout_mode = 2
+text = "advance 1s"
+script = SubResource("GDScript_or0ix")
+game_state = NodePath("../../../GameState")
 
-[node name="Node" type="Node" parent="." unique_id=882055669]
+[node name="Advance10sButton" type="Button" parent="UI/DebugInfo" unique_id=472904595 node_paths=PackedStringArray("game_state")]
+layout_mode = 2
+text = "advance 10s"
+script = SubResource("GDScript_or0ix")
+game_state = NodePath("../../../GameState")
+seconds_count = 10
+
+[node name="Advance1000sButton" type="Button" parent="UI/DebugInfo" unique_id=421521139 node_paths=PackedStringArray("game_state")]
+layout_mode = 2
+text = "advance 1000s"
+script = SubResource("GDScript_or0ix")
+game_state = NodePath("../../../GameState")
+seconds_count = 1000
+
+[node name="Advance100000sButton" type="Button" parent="UI/DebugInfo" unique_id=1434596127 node_paths=PackedStringArray("game_state")]
+layout_mode = 2
+text = "advance 100000s"
+script = SubResource("GDScript_or0ix")
+game_state = NodePath("../../../GameState")
+seconds_count = 100000
+
+[node name="Advance10000000sButton" type="Button" parent="UI/DebugInfo" unique_id=899724547 node_paths=PackedStringArray("game_state")]
+layout_mode = 2
+text = "advance 10000000s"
+script = SubResource("GDScript_or0ix")
+game_state = NodePath("../../../GameState")
+seconds_count = 10000000
+
+[node name="Add1DungBeetleButton" type="Button" parent="UI/DebugInfo" unique_id=36407455 node_paths=PackedStringArray("game_state")]
+layout_mode = 2
+text = "+1 dung beetle"
+script = SubResource("GDScript_acqox")
+game_state = NodePath("../../../GameState")
+
+[node name="Add10DungBeetlesButton" type="Button" parent="UI/DebugInfo" unique_id=104901957 node_paths=PackedStringArray("game_state")]
+layout_mode = 2
+text = "+10 dung beetle"
+script = SubResource("GDScript_acqox")
+count = 10
+game_state = NodePath("../../../GameState")
+
+[node name="Add100DungBeetlesButton" type="Button" parent="UI/DebugInfo" unique_id=720833063 node_paths=PackedStringArray("game_state")]
+layout_mode = 2
+text = "+100 dung beetle"
+script = SubResource("GDScript_acqox")
+count = 100
+game_state = NodePath("../../../GameState")
+
+[node name="AddMaxDungBeetleButton2" type="Button" parent="UI/DebugInfo" unique_id=650078299 node_paths=PackedStringArray("game_state")]
+layout_mode = 2
+disabled = true
+text = "+max dung beetle"
+script = SubResource("GDScript_5m41d")
+game_state = NodePath("../../../GameState")
+
+[node name="RacoonArea" type="Node" parent="." unique_id=995229874]

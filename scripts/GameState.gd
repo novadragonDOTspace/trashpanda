@@ -35,7 +35,12 @@ static func times_percent_power(value: BigCat.BigNumber, percent: BigCat.BigNumb
 	return result.divide(precision)
 
 
-static func calculate_next_costs(base_cost: BigCat.BigNumber, skipped: BigCat.BigNumber, count: BigCat.BigNumber, increment_percent: BigCat.BigNumber) -> BigCat.BigNumber:
+static func calculate_next_costs(
+		base_cost: BigCat.BigNumber,
+		skipped: BigCat.BigNumber,
+		count: BigCat.BigNumber,
+		increment_percent: BigCat.BigNumber,
+) -> BigCat.BigNumber:
 	if count.is_less_than_or_equal_to(BigCat.BigNumber.ZERO):
 		return BigCat.BigNumber.ZERO
 	var cost = base_cost
@@ -55,15 +60,17 @@ static func format_big_number(number: BigCat.BigNumber) -> String:
 	if number.is_less_than(thousand) or true:
 		return number.to_string()
 	var original = number
-	var suffixIndex = 0
+	var suffix_index = 0
 	var threshold = BigCat.BigNumber.from_int(1000000)
 	while number.is_greater_than_or_equal_to(threshold):
 		number = number.divide(thousand)
-		suffixIndex += 1
-	if suffixIndex < len(SUFFIXES):
+		suffix_index += 1
+	if suffix_index < len(SUFFIXES):
 		var as_string = number.divide(BigCat.BigNumber.from_int(10)).to_string()
 		var length = len(as_string)
-		return as_string.substr(0, length - 2) + "." + as_string.substr(length - 2, length) + " " + SUFFIXES[suffixIndex]
+		return as_string.substr(0, length - 2) \
+		+ "." + as_string.substr(length - 2, length) \
+		+ " " + SUFFIXES[suffix_index]
 	return original.to_string()
 
 
@@ -108,7 +115,13 @@ func debug_update_label():
 	if debug_label != null:
 		var next_dung_beetle_cost = BigCat.BigNumber.from_int(-1)
 		#var next_dung_beetle_cost = calculate_next_costs(debug_dung_beetle_cost, dung_beetle_count, BigCat.BigNumber.ONE, BigCat.BigNumber.from_int(115))
-		debug_label.text = "amount: %s\nproduction: %s\ndung beetles: %s\ndung beetle cost: %s" % [format_big_number(current_amount), format_big_number(current_production), format_big_number(dung_beetle_count), format_big_number(next_dung_beetle_cost)]
+		debug_label.text = "amount: %s\nproduction: %s\ndung beetles: %s\ndung beetle cost: %s" % \
+		[
+			format_big_number(current_amount),
+			format_big_number(current_production),
+			format_big_number(dung_beetle_count),
+			format_big_number(next_dung_beetle_cost),
+		]
 
 
 func _recalc_production():
