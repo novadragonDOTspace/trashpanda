@@ -28,12 +28,11 @@ text = "Amount: "
 layout_mode = 2
 text = "0"
 
-[node name="RacoonManager" type="Node" parent="." unique_id=704015668 node_paths=PackedStringArray("game_state", "racoon_start", "racoon_target", "racoon_targets", "racoon_container")]
+[node name="RacoonManager" type="Node" parent="." unique_id=704015668 node_paths=PackedStringArray("game_state", "racoon_start", "racoon_targets", "racoon_container")]
 script = ExtResource("4_teipn")
 trash_sources = ExtResource("2_71gls")
 game_state = NodePath("../GameState")
 racoon_start = NodePath("RacoonStart")
-racoon_target = NodePath("RacoonTarget")
 racoon_targets = [NodePath("RacoonTarget")]
 racoon_container = NodePath("RacoonContainer")
 
@@ -48,5 +47,4 @@ position = Vector2(720, 720)
 [connection signal="amount_changed" from="GameState" to="VBoxContainer" method="handle_amount_change"]
 [connection signal="cost_changed" from="GameState" to="VBoxContainer" method="handle_cost_update"]
 [connection signal="count_changed" from="GameState" to="VBoxContainer" method="handle_building_count_update"]
-[connection signal="production_changed" from="GameState" to="VBoxContainer" method="handle_production_change"]
 [connection signal="visualize_new_trash" from="GameState" to="VBoxContainer" method="handle_amount_visualization"]

@@ -30,9 +30,20 @@ func _add_racoon(target_index: int) -> void:
 			racoon.current_target = racoon_targets[target_index]
 			racoon.current_total_distance = (racoon.current_target.global_position - racoon_start.global_position).length()
 			racoon.remaining_distance = racoon.current_total_distance
+func get_next_racoon_cost(trash_index: int) -> Big:	
+	var count = count_racoons_per_trash(trash_index)
+	return trash_sources.calculate_next_costs(trash_index, count, Big.new(1), Big.new(115))
 func buy_racoon(target_index: int) -> void:
-	# TODO(rw): implement payment
-	_add_racoon(target_index)
+	var cost = get_next_racoon_cost(target_index)
+	if cost.isLessThanOrEqualTo(game_state.current_amount):
+		game_state.deduce_amount(cost)
+		_add_racoon(target_index)
+func count_racoons_per_trash(trash_index: int) -> Big:
+	var result = Big.new(0);
+	for racoon in racoons:
+		if racoon.trash_source_index == trash_index:
+			result = result.plus(1)
+	return result
 
 func _safe_get_from_array(index: int, array: Array[int], fallback: int = 0) -> int:
 	if index >= 0 and index < array.size():

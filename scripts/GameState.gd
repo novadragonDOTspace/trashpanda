@@ -46,6 +46,9 @@ func add_amount_with_popup(amount: Big) -> void:
 	current_amount = current_amount.plus(amount)
 	amount_changed.emit(current_amount)
 	visualize_new_trash.emit(amount)
+func deduce_amount(amount: Big) -> void:
+	current_amount = current_amount.minus(amount)
+	amount_changed.emit(current_amount)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

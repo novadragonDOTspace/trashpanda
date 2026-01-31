@@ -42,4 +42,3 @@ func handle_amount_visualization(amount: Big) -> void:
 	var instance = amount_popup_template.instantiate() as AmountPopup
 	(amount_popup_container if amount_popup_container != null else self ).add_child(instance)
 	instance.set_amount(amount)
-	instance.global_position = Vector2(360, 360)

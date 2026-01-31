@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_c0sgf")
 display_name = "Dung Beetle"
+base_price_mantissa = 100
 production_mantissa = 2
 trash_collection_delay_base_mantissa = 5
 trash_delivery_delay_base_mantissa = 1

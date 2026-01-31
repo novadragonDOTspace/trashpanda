@@ -149,4 +149,5 @@ offset_top = 361.0
 offset_right = 569.0
 offset_bottom = 361.0
 
+[connection signal="amount_changed" from="GameState" to="UI" method="handle_amount_change"]
 [connection signal="visualize_new_trash" from="GameState" to="UI" method="handle_amount_visualization"]

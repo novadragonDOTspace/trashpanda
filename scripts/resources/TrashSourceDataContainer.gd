@@ -6,13 +6,13 @@ var entries: Array[TrashSourceDataEntry]
 
 func get_cost(index: int) -> Big:
 	if index >= 0 && index < entries.size():
-		return entries[index].get_big_cost()
+		return entries[index].get_cost()
 	push_error("didn't find cost for index %i" % index)
 	return Big.new(0)
 	
 func get_production(index: int) -> Big:
 	if index >= 0 && index < entries.size():
-		return entries[index].get_big_production()
+		return entries[index].get_production()
 	push_error("didn't find production for index %i" % index)
 	return Big.new(0)
 
