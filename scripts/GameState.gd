@@ -45,10 +45,13 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func _process(delta: float) -> void:
+	advance_seonds(Big.new(delta))
 
 func debug_advance_seonds(seconds: int):
+	current_amount = current_amount.plus(current_production.multiply(seconds))
+	amount_changed.emit(current_amount)
+func advance_seonds(seconds: Big):
 	current_amount = current_amount.plus(current_production.multiply(seconds))
 	amount_changed.emit(current_amount)
 
