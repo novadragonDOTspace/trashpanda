@@ -23,9 +23,12 @@ var speed_upgrade_counts: Array[int] = []
 var strength_upgrade_counts: Array[int] = []
 var max_level: int = 1
 
+signal racoon_count_changed(level: int, count: Big)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_add_racoon(0, 1)
+	_recount_all_racoons()
 func _add_racoon(target_index: int, level: int) -> void:
 	if target_index >= 0 and target_index < racoon_targets.size() and target_index < trash_sources.entries.size():
 		var racoon = racoon_template.instantiate() as Racoon;
@@ -63,6 +66,22 @@ func _apply_racoon_level(racoon: Racoon) -> void:
 	racoon.speed_factor = speed_factor
 	racoon.strength_factor = strength_factor
 	racoon.set_scale_factor(scale_factor)
+func _recount_all_racoons() -> void:
+	var counts: Array[Big] = []
+	var count_multipliers: Array[Big] = [Big.new(1)]
+	for racoon in racoons:
+		var index = racoon.trash_source_index
+		var level = racoon.level
+		var level_index = level - 1
+		while index >= counts.size():
+			counts.append(Big.new(0))
+		while level_index >= count_multipliers.size():
+			var new_level = count_multipliers.size()
+			var multiplier = count_multipliers[new_level - 1].multiply(upgrade_data.entries[new_level - 1].combine_count if new_level - 1 < upgrade_data.entries.size() else 1)
+			count_multipliers.append(multiplier)
+		counts[index] = counts[index].plus(count_multipliers[level_index])
+	for i in range(counts.size()):
+		racoon_count_changed.emit(i, counts[i])
 
 func _get_collection_position(trash_index: int) -> Vector2:
 	if trash_index >= 0:
@@ -73,6 +92,7 @@ func _get_collection_position(trash_index: int) -> Vector2:
 	return Vector2(0, 0)
 
 func get_next_racoon_cost(trash_index: int) -> Big:
+	# TODO(rw): count_racoons_per_trash doesn't consider the combine_count and underreports the count
 	var count = count_racoons_per_trash(trash_index)
 	return trash_sources.calculate_next_costs(trash_index, count, Big.new(1), Big.new(115))
 func buy_racoon(target_index: int) -> void:
@@ -83,6 +103,7 @@ func buy_racoon(target_index: int) -> void:
 		_add_racoon(target_index, 1)
 		check_and_upgrade_racoons(target_index)
 func count_racoons_per_trash(trash_index: int) -> Big:
+	# TODO(rw): this doesn't consider the combine_count and underreports the count
 	var result = Big.new(0);
 	for racoon in racoons:
 		if racoon.trash_source_index == trash_index:
@@ -90,7 +111,7 @@ func count_racoons_per_trash(trash_index: int) -> Big:
 	return result
 func check_and_upgrade_racoons(trash_index: int) -> void:
 	var filtered_racoons = racoons.filter(func(racoon): return racoon.trash_source_index == trash_index)
-	for level in range(1, min(max_level + 1, upgrade_data.entries.size())):
+	for level in range(1, min(max_level + 1, upgrade_data.entries.size() + 1)):
 		var racoons_on_level = filtered_racoons.filter(func(racoon): return racoon.level == level)
 		var combine_count = upgrade_data.entries[level - 1].combine_count
 		var new_count = racoons_on_level.size() / upgrade_data.entries[level - 1].combine_count
@@ -98,7 +119,9 @@ func check_and_upgrade_racoons(trash_index: int) -> void:
 			_remove_racoons(trash_index, level, new_count * combine_count)
 			for i in range(new_count):
 				_add_racoon(trash_index, level + 1)
+			filtered_racoons = racoons.filter(func(racoon): return racoon.trash_source_index == trash_index)
 			max_level = max(max_level, level + 1)
+	_recount_all_racoons()
 func _safe_get_from_array(index: int, array: Array[int], fallback: int = 0) -> int:
 	if index >= 0 and index < array.size():
 		return array[index]

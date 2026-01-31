@@ -3,11 +3,13 @@
 [ext_resource type="Script" uid="uid://dya5oj4txqtb2" path="res://scripts/UI/RacoonUIButton.gd" id="1_7hbrq"]
 [ext_resource type="Texture2D" uid="uid://5l4at0bjr251" path="res://grafics/coon_placeholder.png" id="1_e2042"]
 
-[node name="VBoxContainer" type="VBoxContainer" unique_id=1457535689]
+[node name="VBoxContainer" type="VBoxContainer" unique_id=1457535689 node_paths=PackedStringArray("racoon_count_label", "add_racoon_cost_label")]
 custom_minimum_size = Vector2(200, 0)
 offset_right = 89.0
 offset_bottom = 194.0
 script = ExtResource("1_7hbrq")
+racoon_count_label = NodePath("CountIncreaseButton/HBoxContainer/Count")
+add_racoon_cost_label = NodePath("CountIncreaseButton/HBoxContainer/AddCost")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=431592765]
 layout_mode = 2
@@ -25,7 +27,32 @@ text = "Power+1"
 
 [node name="CountIncreaseButton" type="Button" parent="." unique_id=1147420]
 layout_mode = 2
-text = "Amount+1"
+text = " "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CountIncreaseButton" unique_id=889372432]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Count" type="Label" parent="CountIncreaseButton/HBoxContainer" unique_id=1033099108]
+layout_mode = 2
+text = "15"
+
+[node name="Label" type="Label" parent="CountIncreaseButton/HBoxContainer" unique_id=1714969839]
+layout_mode = 2
+text = "+1 ("
+
+[node name="AddCost" type="Label" parent="CountIncreaseButton/HBoxContainer" unique_id=1746094882]
+layout_mode = 2
+text = "12.00k"
+
+[node name="Label2" type="Label" parent="CountIncreaseButton/HBoxContainer" unique_id=216782640]
+layout_mode = 2
+text = ")"
 
 [connection signal="pressed" from="SpeedIncreaseButton" to="." method="_handle_speed_increase_press"]
 [connection signal="pressed" from="StrengthIncreaseButton" to="." method="_handle_strength_increase_press"]

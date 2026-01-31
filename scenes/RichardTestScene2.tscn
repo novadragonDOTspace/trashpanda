@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://fpukcf3dv0bu"]
 
 [ext_resource type="Script" uid="uid://dp0bakax16c6y" path="res://scripts/GameState.gd" id="1_l513n"]
-[ext_resource type="Script" uid="uid://bckvjmv4qttbu" path="res://scripts/StatePrersentation.gd" id="2_to00c"]
+[ext_resource type="Script" uid="uid://bckvjmv4qttbu" path="res://scripts/StatePresentation.gd" id="2_to00c"]
 [ext_resource type="Resource" uid="uid://bvhlqylnipmq7" path="res://resources/currencies.tres" id="3_2xv5m"]
 [ext_resource type="Script" uid="uid://cinsn3sejva5a" path="res://scripts/RacoonManager.gd" id="3_to00c"]
 [ext_resource type="Texture2D" uid="uid://c281uciqmnd78" path="res://icon.svg" id="4_q5fso"]
@@ -192,3 +192,4 @@ position = Vector2(71, 700)
 
 [connection signal="amount_changed" from="GameState" to="UI" method="handle_amount_change"]
 [connection signal="visualize_new_trash" from="GameState" to="UI" method="handle_amount_visualization"]
+[connection signal="racoon_count_changed" from="RacoonShenanigans/RacoonManager" to="UI" method="handle_count_change"]
