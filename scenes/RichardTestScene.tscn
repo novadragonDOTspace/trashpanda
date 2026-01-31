@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dp0bakax16c6y" path="res://scripts/GameState.gd" id="1_gp3kg"]
 [ext_resource type="Resource" uid="uid://bvhlqylnipmq7" path="res://resources/currencies.tres" id="2_71gls"]
+[ext_resource type="Script" uid="uid://bckvjmv4qttbu" path="res://scripts/StatePrersentation.gd" id="3_3ir18"]
 
 [sub_resource type="GDScript" id="GDScript_gp3kg"]
 script/source = "extends Button
@@ -20,29 +21,6 @@ func _handle_button_press():
 		game_state.debug_advance_seonds(seconds_count)
 	else:
 		push_error(\"can't advance 1s: no game state!\")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
-[sub_resource type="GDScript" id="GDScript_71gls"]
-script/source = "extends Button
-
-@export
-var count: int = 1
-@export
-var game_state: GameState
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pressed.connect(_handle_pressed)
-
-func _handle_pressed():
-	if game_state != null:
-		game_state.debug_add_dung_beetles(Big.new(count))
-	else:
-		push_error(\"can't add 1 dung beetle: no game state!\")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -72,16 +50,20 @@ func _process(delta: float) -> void:
 
 [node name="Node2D" type="Node2D" unique_id=1344187693]
 
-[node name="GameState" type="Node" parent="." unique_id=1580689890 node_paths=PackedStringArray("debug_label")]
+[node name="GameState" type="Node" parent="." unique_id=1580689890]
 script = ExtResource("1_gp3kg")
-debug_label = NodePath("../VBoxContainer/Label")
 currencies = ExtResource("2_71gls")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=364343175]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=364343175 node_paths=PackedStringArray("game_state", "debug_label", "entry_element_container")]
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("3_3ir18")
+game_state = NodePath("../GameState")
+debug_label = NodePath("DebugLabel")
+entry_element_container = NodePath(".")
+currencies = ExtResource("2_71gls")
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1489501487]
+[node name="DebugLabel" type="Label" parent="VBoxContainer" unique_id=1489501487]
 layout_mode = 2
 text = "0"
 
@@ -119,29 +101,11 @@ script = SubResource("GDScript_gp3kg")
 game_state = NodePath("../../GameState")
 seconds_count = 10000000
 
-[node name="Add1DungBeetleButton" type="Button" parent="VBoxContainer" unique_id=1960139083 node_paths=PackedStringArray("game_state")]
-layout_mode = 2
-text = "+1 dung beetle"
-script = SubResource("GDScript_71gls")
-game_state = NodePath("../../GameState")
-
-[node name="Add10DungBeetlesButton" type="Button" parent="VBoxContainer" unique_id=2073265058 node_paths=PackedStringArray("game_state")]
-layout_mode = 2
-text = "+10 dung beetle"
-script = SubResource("GDScript_71gls")
-count = 10
-game_state = NodePath("../../GameState")
-
-[node name="Add100DungBeetlesButton" type="Button" parent="VBoxContainer" unique_id=444505631 node_paths=PackedStringArray("game_state")]
-layout_mode = 2
-text = "+100 dung beetle"
-script = SubResource("GDScript_71gls")
-count = 100
-game_state = NodePath("../../GameState")
-
 [node name="AddMaxDungBeetleButton2" type="Button" parent="VBoxContainer" unique_id=1172832147 node_paths=PackedStringArray("game_state")]
 layout_mode = 2
 disabled = true
 text = "+max dung beetle"
 script = SubResource("GDScript_3ir18")
 game_state = NodePath("../../GameState")
+
+[connection signal="debug_text_changed" from="GameState" to="VBoxContainer" method="handle_debug_text_update"]
