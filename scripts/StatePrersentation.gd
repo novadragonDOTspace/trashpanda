@@ -3,7 +3,9 @@ extends Node
 @export
 var game_state: GameState
 @export
-var debug_label: Label
+var amount_label: Label
+@export
+var production_label: Label
 @export
 var entry_element_container: Node
 @export
@@ -29,10 +31,14 @@ func _handle_buy_button_press(building_index: int, count: int) -> void:
 func _process(delta: float) -> void:
 	pass
 
-func handle_debug_text_update(text: String) -> void:
-	if debug_label != null:
-		debug_label.text = text
-
 func handle_cost_update(index: int, new_cost: Big) -> void:
 	if index >= 0 and index < entry_elements.size():
 		entry_elements[index].set_cost(new_cost)
+func handle_building_count_update(index: int, new_count: Big) -> void:
+	if index >= 0 and index < entry_elements.size():
+		entry_elements[index].set_count(new_count)
+
+func handle_production_change(amount: Big) -> void:
+	production_label.text = amount.toAA(true)
+func handle_amount_change(amount: Big) -> void:
+	amount_label.text = amount.toAA(true)

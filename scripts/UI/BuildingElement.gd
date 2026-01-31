@@ -4,6 +4,8 @@ extends Node
 @export
 var display_name_label: Label
 @export
+var count_label: Label
+@export
 var production_label: Label
 @export
 var cost_label: Label
@@ -21,6 +23,8 @@ func _process(delta: float) -> void:
 func set_display_name(name: String) -> void:
 	assert(display_name_label != null)
 	display_name_label.text = name
+func set_count(count: Big) -> void:
+	count_label.text = count.toAA(true)
 func set_cost(cost: Big) -> void:
 	assert(cost_label != null)
 	cost_label.text = cost.toAA(true)
