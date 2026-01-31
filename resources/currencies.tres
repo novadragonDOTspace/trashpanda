@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="CurrencyDataContainer" format=3 uid="uid://bvhlqylnipmq7"]
+[gd_resource type="Resource" script_class="TrashSourceDataContainer" format=3 uid="uid://bvhlqylnipmq7"]
 
-[ext_resource type="Script" path="res://scripts/resources/CurrencyDataEntry.gd" id="1_km3y4"]
-[ext_resource type="Resource" path="res://resources/dung_beetle.tres" id="2_0nuci"]
-[ext_resource type="Script" path="res://scripts/resources/CurrencyDataContainer.gd" id="2_r65vv"]
-[ext_resource type="Resource" path="res://resources/building_2.tres" id="3_0nuci"]
+[ext_resource type="Script" uid="uid://btln6oucxggur" path="res://scripts/resources/TrashSourceDataEntry.gd" id="1_km3y4"]
+[ext_resource type="Resource" uid="uid://dfxrsyp2jh718" path="res://resources/trash_target_1.tres" id="2_0nuci"]
+[ext_resource type="Script" uid="uid://b6v5ldq5sf03l" path="res://scripts/resources/TrashSourceDataContainer.gd" id="2_r65vv"]
+[ext_resource type="Resource" uid="uid://s25ljb0a4nsn" path="res://resources/trash_target_2.tres" id="3_0nuci"]
 
 [resource]
 script = ExtResource("2_r65vv")

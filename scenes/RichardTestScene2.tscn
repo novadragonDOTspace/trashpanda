@@ -5,7 +5,6 @@
 [ext_resource type="Resource" uid="uid://bvhlqylnipmq7" path="res://resources/currencies.tres" id="3_2xv5m"]
 [ext_resource type="Script" uid="uid://cinsn3sejva5a" path="res://scripts/RacoonManager.gd" id="3_to00c"]
 [ext_resource type="Texture2D" uid="uid://c281uciqmnd78" path="res://icon.svg" id="4_q5fso"]
-[ext_resource type="PackedScene" uid="uid://dhs4vydsptve6" path="res://scenes/UI/AmountPopup.tscn" id="6_to00c"]
 
 [node name="BaseScene" type="Node2D" unique_id=630918859]
 
@@ -142,12 +141,6 @@ limit_right = 8500
 
 [node name="AmoountPopupStart" type="Node2D" parent="RacoonShenanigans" unique_id=1921528007]
 position = Vector2(71, 700)
-
-[node name="AmountPopup" parent="." unique_id=779252090 instance=ExtResource("6_to00c")]
-offset_left = 569.0
-offset_top = 361.0
-offset_right = 569.0
-offset_bottom = 361.0
 
 [connection signal="amount_changed" from="GameState" to="UI" method="handle_amount_change"]
 [connection signal="visualize_new_trash" from="GameState" to="UI" method="handle_amount_visualization"]
