@@ -30,7 +30,7 @@ func _add_racoon(target_index: int) -> void:
 			racoon.current_target = racoon_targets[target_index]
 			racoon.current_total_distance = (racoon.current_target.global_position - racoon_start.global_position).length()
 			racoon.remaining_distance = racoon.current_total_distance
-func get_next_racoon_cost(trash_index: int) -> Big:	
+func get_next_racoon_cost(trash_index: int) -> Big:
 	var count = count_racoons_per_trash(trash_index)
 	return trash_sources.calculate_next_costs(trash_index, count, Big.new(1), Big.new(115))
 func buy_racoon(target_index: int) -> void:
@@ -119,6 +119,6 @@ func _process(delta: float) -> void:
 						racoon.carried_trash = _calculate_collected_tash(racoon)
 					racoon.returning = !racoon.returning
 					racoon.remaining_distance += (racoon.current_target.global_position - racoon_start.global_position).length()
-					racoon.flip_h = !racoon.flip_h
+					racoon.flip_sprites()
 
 		_update_racoon_position(racoon)
