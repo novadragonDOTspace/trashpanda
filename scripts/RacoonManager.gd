@@ -25,6 +25,8 @@ var max_level: int = 1
 
 signal racoon_count_changed(trash_index: int, count: Big)
 signal racoon_price_changed(trash_index: int, price: Big)
+signal strength_level_changed(trash_index: int, level: Big, price: Big)
+signal speed_level_changed(trash_index: int, level: Big, price: Big)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,6 +34,8 @@ func _ready() -> void:
 	var zero = Big.new(0)
 	for i in range(trash_sources.entries.size()):
 		racoon_price_changed.emit(i, get_next_racoon_cost_by_count(i, zero))
+		strength_level_changed.emit(i, Big.new(i + 3), Big.new(i + 10))
+		speed_level_changed.emit(i, Big.new(i + 5), Big.new(i + 8))
 	_recount_all_racoons()
 func _add_racoon(target_index: int, level: int) -> void:
 	if target_index >= 0 and target_index < racoon_targets.size() and target_index < trash_sources.entries.size():

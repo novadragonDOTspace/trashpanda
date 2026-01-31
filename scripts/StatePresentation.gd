@@ -39,8 +39,12 @@ func handle_count_change(trash_index: int, racoon_count: Big) -> void:
 func handle_cost_update(trash_index: int, new_cost: Big) -> void:
 	if trash_index >= 0 && trash_index < elements.size():
 		elements[trash_index].set_racoon_cost(new_cost)
-func handle_building_count_update(index: int, new_count: Big) -> void:
-	pass
+func handle_strength_level_change(trash_index: int, level: Big, price: Big) -> void:
+	if trash_index >= 0 && trash_index < elements.size():
+		elements[trash_index].set_strength_data(level, price)
+func handle_speed_level_change(trash_index: int, level: Big, price: Big) -> void:
+	if trash_index >= 0 && trash_index < elements.size():
+		elements[trash_index].set_speed_data(level, price)
 
 func handle_amount_change(amount: Big) -> void:
 	amount_label.text = amount.toAA(true)

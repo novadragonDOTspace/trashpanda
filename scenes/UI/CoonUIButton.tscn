@@ -3,13 +3,17 @@
 [ext_resource type="Script" uid="uid://dya5oj4txqtb2" path="res://scripts/UI/RacoonUIButton.gd" id="1_7hbrq"]
 [ext_resource type="Texture2D" uid="uid://5l4at0bjr251" path="res://grafics/coon_placeholder.png" id="1_e2042"]
 
-[node name="VBoxContainer" type="VBoxContainer" unique_id=1457535689 node_paths=PackedStringArray("racoon_count_label", "add_racoon_cost_label")]
+[node name="VBoxContainer" type="VBoxContainer" unique_id=1457535689 node_paths=PackedStringArray("racoon_count_label", "add_racoon_cost_label", "strength_level_label", "strength_cost_label", "speed_level_label", "speed_cost_label")]
 custom_minimum_size = Vector2(200, 0)
 offset_right = 89.0
 offset_bottom = 194.0
 script = ExtResource("1_7hbrq")
 racoon_count_label = NodePath("CountIncreaseButton/HBoxContainer/Count")
 add_racoon_cost_label = NodePath("CountIncreaseButton/HBoxContainer/AddCost")
+strength_level_label = NodePath("StrengthIncreaseButton/HBoxContainer/Level")
+strength_cost_label = NodePath("StrengthIncreaseButton/HBoxContainer/IncreaseCost")
+speed_level_label = NodePath("SpeedIncreaseButton/HBoxContainer/Level")
+speed_cost_label = NodePath("SpeedIncreaseButton/HBoxContainer/IncreaseCost")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=431592765]
 layout_mode = 2
@@ -18,12 +22,63 @@ expand_mode = 4
 
 [node name="SpeedIncreaseButton" type="Button" parent="." unique_id=1038208848]
 layout_mode = 2
-text = "Speed +1
-"
+text = " "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SpeedIncreaseButton" unique_id=1949775222]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Level" type="Label" parent="SpeedIncreaseButton/HBoxContainer" unique_id=1874601467]
+layout_mode = 2
+text = "15"
+
+[node name="Label" type="Label" parent="SpeedIncreaseButton/HBoxContainer" unique_id=1189995011]
+layout_mode = 2
+text = "Speed +1 ("
+
+[node name="IncreaseCost" type="Label" parent="SpeedIncreaseButton/HBoxContainer" unique_id=1654512896]
+layout_mode = 2
+text = "12.00k"
+
+[node name="Label2" type="Label" parent="SpeedIncreaseButton/HBoxContainer" unique_id=1924576602]
+layout_mode = 2
+text = ")"
 
 [node name="StrengthIncreaseButton" type="Button" parent="." unique_id=1233256831]
 layout_mode = 2
-text = "Power+1"
+text = " "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StrengthIncreaseButton" unique_id=1784571593]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Level" type="Label" parent="StrengthIncreaseButton/HBoxContainer" unique_id=1215736871]
+layout_mode = 2
+text = "15"
+
+[node name="Label" type="Label" parent="StrengthIncreaseButton/HBoxContainer" unique_id=730195637]
+layout_mode = 2
+text = "Strength +1 ("
+
+[node name="IncreaseCost" type="Label" parent="StrengthIncreaseButton/HBoxContainer" unique_id=2085779238]
+layout_mode = 2
+text = "12.00k"
+
+[node name="Label2" type="Label" parent="StrengthIncreaseButton/HBoxContainer" unique_id=1355431575]
+layout_mode = 2
+text = ")"
 
 [node name="CountIncreaseButton" type="Button" parent="." unique_id=1147420]
 layout_mode = 2
@@ -36,6 +91,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="Count" type="Label" parent="CountIncreaseButton/HBoxContainer" unique_id=1033099108]

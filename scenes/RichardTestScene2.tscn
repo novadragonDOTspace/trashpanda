@@ -194,3 +194,5 @@ position = Vector2(71, 700)
 [connection signal="visualize_new_trash" from="GameState" to="UI" method="handle_amount_visualization"]
 [connection signal="racoon_count_changed" from="RacoonShenanigans/RacoonManager" to="UI" method="handle_count_change"]
 [connection signal="racoon_price_changed" from="RacoonShenanigans/RacoonManager" to="UI" method="handle_cost_update"]
+[connection signal="speed_level_changed" from="RacoonShenanigans/RacoonManager" to="UI" method="handle_speed_level_change"]
+[connection signal="strength_level_changed" from="RacoonShenanigans/RacoonManager" to="UI" method="handle_strength_level_change"]

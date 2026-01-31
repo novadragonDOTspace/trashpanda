@@ -9,6 +9,14 @@ signal count_increase_pressed()
 var racoon_count_label: Label
 @export
 var add_racoon_cost_label: Label
+@export
+var strength_level_label: Label
+@export
+var strength_cost_label: Label
+@export
+var speed_level_label: Label
+@export
+var speed_cost_label: Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,3 +38,9 @@ func set_racoon_count(racoon_count: Big) -> void:
 	racoon_count_label.text = racoon_count.toAA(true)
 func set_racoon_cost(cost: Big) -> void:
 	add_racoon_cost_label.text = cost.toAA(true)
+func set_strength_data(level: Big, cost: Big) -> void:
+	strength_level_label.text = level.toAA(true)
+	strength_cost_label.text = cost.toAA(true)
+func set_speed_data(level: Big, cost: Big) -> void:
+	speed_level_label.text = level.toAA(true)
+	speed_cost_label.text = cost.toAA(true)
