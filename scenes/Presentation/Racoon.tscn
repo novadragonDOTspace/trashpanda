@@ -7,5 +7,6 @@
 scale = Vector2(0.1, 0.1)
 sprite_frames = ExtResource("1_no0bb")
 animation = &"walk"
+frame_progress = 0.15323243
 flip_h = true
 script = ExtResource("2_no0bb")
