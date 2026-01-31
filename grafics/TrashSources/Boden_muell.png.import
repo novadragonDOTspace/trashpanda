@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvjnlbpq7n1t0"
-path="res://.godot/imported/Hat_lv1_banana.png-37fbcbfdb219c42eb24424afde6246f6.ctex"
+uid="uid://dyqkdbe07c1f3"
+path="res://.godot/imported/Boden_muell.png-8215b8de481f9c701e368dab8cb2dbb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grafics/Hat_lv1_banana.png"
-dest_files=["res://.godot/imported/Hat_lv1_banana.png-37fbcbfdb219c42eb24424afde6246f6.ctex"]
+source_file="res://grafics/TrashSources/Boden_muell.png"
+dest_files=["res://.godot/imported/Boden_muell.png-8215b8de481f9c701e368dab8cb2dbb2.ctex"]
 
 [params]
 

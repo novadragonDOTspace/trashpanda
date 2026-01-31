@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnst5qyr7a0na"
-path="res://.godot/imported/Hat_lv3_party.png-116423be2fc6d5ece81708f5e20e49d1.ctex"
+uid="uid://01n8asmaf340"
+path="res://.godot/imported/Hat_lv13_fishbowl.png-8c7b613bc3f9a57275c008af2d8fe18f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grafics/Hat_lv3_party.png"
-dest_files=["res://.godot/imported/Hat_lv3_party.png-116423be2fc6d5ece81708f5e20e49d1.ctex"]
+source_file="res://grafics/Hat_lv13_fishbowl.png"
+dest_files=["res://.godot/imported/Hat_lv13_fishbowl.png-8c7b613bc3f9a57275c008af2d8fe18f.ctex"]
 
 [params]
 

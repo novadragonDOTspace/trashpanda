@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6hdtdhmnqi0c"
-path="res://.godot/imported/Hat_lv2_doener.png-7164a6fa435176dbc5f128f5b10bc70d.ctex"
+uid="uid://c3118eolc75t1"
+path="res://.godot/imported/UI_frame2-300x300.png-79b48e7e679ccb1484748b6f6d3deddb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grafics/Hat_lv2_doener.png"
-dest_files=["res://.godot/imported/Hat_lv2_doener.png-7164a6fa435176dbc5f128f5b10bc70d.ctex"]
+source_file="res://grafics/UI/UI_frame2-300x300.png"
+dest_files=["res://.godot/imported/UI_frame2-300x300.png-79b48e7e679ccb1484748b6f6d3deddb.ctex"]
 
 [params]
 
