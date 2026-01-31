@@ -18,3 +18,5 @@
 *.cfg filter=lfs diff=lfs merge=lfs -text
 *.fnt filter=lfs diff=lfs merge=lfs -text
 *.tmp filter=lfs diff=lfs merge=lfs -text
+/README filter=lfs diff=lfs merge=lfs -text
+*.mp3 filter=lfs diff=lfs merge=lfs -text
