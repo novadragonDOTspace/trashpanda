@@ -11,7 +11,11 @@ var racoon_template = preload("res://scenes/Presentation/Racoon.tscn")
 @export
 var racoon_start: Node2D
 @export
+var delivery_point: Node2D
+@export
 var racoon_targets: Array[Node2D]
+@export
+var collection_points: Array[Node2D]
 @export
 var racoon_container: Node
 var racoons: Array[Racoon] = []
@@ -59,6 +63,14 @@ func _apply_racoon_level(racoon: Racoon) -> void:
 	racoon.speed_factor = speed_factor
 	racoon.strength_factor = strength_factor
 	racoon.set_scale_factor(scale_factor)
+
+func _get_collection_position(trash_index: int) -> Vector2:
+	if trash_index >= 0:
+		if trash_index < collection_points.size():
+			return collection_points[trash_index].global_position
+		elif trash_index < racoon_targets.size():
+			return racoon_targets[trash_index].global_position
+	return Vector2(0, 0)
 
 func get_next_racoon_cost(trash_index: int) -> Big:
 	var count = count_racoons_per_trash(trash_index)
@@ -108,13 +120,20 @@ func increment_strength_upgrade_count(trash_index: int, increment: int = 1) -> v
 	_safe_increment_in_array(trash_index, speed_upgrade_counts, increment)
 
 func _update_racoon_position(racoon: Racoon) -> void:
-	var percentage = 1 - racoon.remaining_distance / racoon.current_total_distance
-	if racoon.returning:
-		percentage = 1 - percentage
-	var start = racoon_start.global_position
-	var end = racoon.current_target.global_position
-	var now = start * (1 - percentage) + end * percentage
-	racoon.global_position = now
+	var new_position: Vector2 = Vector2(0, 0)
+	if racoon.is_waiting:
+		if !racoon.returning:
+			new_position = _get_collection_position(racoon.trash_source_index)
+		else:
+			new_position = delivery_point.global_position
+	else:
+		var percentage = 1 - racoon.remaining_distance / racoon.current_total_distance
+		if racoon.returning:
+			percentage = 1 - percentage
+		var start = racoon_start.global_position
+		var end = racoon.current_target.global_position
+		new_position = start * (1 - percentage) + end * percentage
+	racoon.global_position = new_position
 
 func _get_racoon_target_wait_duration(racoon: Racoon) -> Big:
 	if racoon.trash_source_index >= 0 && racoon.trash_source_index < trash_sources.entries.size():

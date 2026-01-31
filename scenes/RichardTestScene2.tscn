@@ -52,13 +52,15 @@ text = "Trash Collected: 99 Duodecim"
 
 [node name="RacoonShenanigans" type="Node" parent="." unique_id=1723368633]
 
-[node name="RacoonManager" type="Node" parent="RacoonShenanigans" unique_id=1965390102 node_paths=PackedStringArray("game_state", "racoon_start", "racoon_targets", "racoon_container")]
+[node name="RacoonManager" type="Node" parent="RacoonShenanigans" unique_id=1965390102 node_paths=PackedStringArray("game_state", "racoon_start", "delivery_point", "racoon_targets", "collection_points", "racoon_container")]
 script = ExtResource("3_to00c")
 trash_sources = ExtResource("3_2xv5m")
 upgrade_data = ExtResource("5_82yc7")
 game_state = NodePath("../../GameState")
 racoon_start = NodePath("../Node/Home")
+delivery_point = NodePath("../Node/Home/DeliveryPoint")
 racoon_targets = [NodePath("../Node/Building1"), NodePath("../Node/Building2"), NodePath("../Node/Building3"), NodePath("../Node/Building4"), NodePath("../Node/Building5"), NodePath("../Node/Building6"), NodePath("../Node/Building7"), NodePath("../Node/Building8"), NodePath("../Node/Building9"), NodePath("../Node/Building10"), NodePath("../Node/Building11"), NodePath("../Node/Building12"), NodePath("../Node/Building13"), NodePath("../Node/Building14"), NodePath("../Node/Building15")]
+collection_points = [NodePath("../Node/Building1/CollectionPoint")]
 racoon_container = NodePath(".")
 metadata/_custom_type_script = "uid://cinsn3sejva5a"
 
@@ -76,6 +78,9 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("10_i4yul")
 offset = Vector2(-200, -1024)
 
+[node name="DeliveryPoint" type="Node2D" parent="RacoonShenanigans/Node/Home" unique_id=1909017822]
+position = Vector2(9, -134)
+
 [node name="Building1" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1301395371]
 position = Vector2(621, 790)
 scale = Vector2(0.1, 0.1)
@@ -84,7 +89,10 @@ scale = Vector2(0.1, 0.1)
 z_index = -1
 y_sort_enabled = true
 texture = ExtResource("7_c5i6v")
-offset = Vector2(0, -1024)
+offset = Vector2(-200, -1024)
+
+[node name="CollectionPoint" type="Node2D" parent="RacoonShenanigans/Node/Building1" unique_id=1054354089]
+position = Vector2(99.99999, -1329.9999)
 
 [node name="Building2" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1679958728]
 position = Vector2(1171, 790)
