@@ -6,7 +6,6 @@
 [node name="Racoon" type="AnimatedSprite2D" unique_id=226744146]
 scale = Vector2(0.1, 0.1)
 sprite_frames = ExtResource("1_no0bb")
-animation = &"Walk"
-frame_progress = 0.7446217
+animation = &"walk"
 flip_h = true
 script = ExtResource("2_no0bb")

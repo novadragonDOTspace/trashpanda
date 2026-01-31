@@ -68,8 +68,11 @@ func _process(delta: float) -> void:
 					if racoon.returning:
 						# TODO(rw): handle successful return
 						game_state.add_amount(Big.new(1))
-						pass
+						racoon.play("trashwalk")
+					else:
+						racoon.play("walk")
 					racoon.returning = !racoon.returning
 					racoon.remaining_distance += (racoon.current_target.global_position - racoon_start.global_position).length()
 					racoon.flip_h = !racoon.flip_h
+
 		_update_racoon_position(racoon)
