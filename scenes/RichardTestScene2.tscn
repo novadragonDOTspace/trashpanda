@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c6l0omxnsldf1" path="res://grafics/trash_fortress/HomeBase_2.png" id="8_t0jx8"]
 [ext_resource type="Texture2D" uid="uid://biewsgje4qg3v" path="res://grafics/trash_fortress/HomeBase_4.png" id="9_8yikq"]
 [ext_resource type="Texture2D" uid="uid://wruhfb6mtl72" path="res://grafics/trash_fortress/HomeBase_full.png" id="10_i4yul"]
+[ext_resource type="Script" uid="uid://dre1sjpnnhn0y" path="res://scripts/RacoonCamera.gd" id="6_to00c"]
 
 [node name="BaseScene" type="Node2D" unique_id=630918859]
 
@@ -148,6 +149,7 @@ position = Vector2(8321, 790)
 anchor_mode = 0
 limit_left = 0
 limit_right = 8500
+script = ExtResource("6_to00c")
 
 [node name="AmoountPopupStart" type="Node2D" parent="RacoonShenanigans" unique_id=1921528007]
 position = Vector2(71, 700)
