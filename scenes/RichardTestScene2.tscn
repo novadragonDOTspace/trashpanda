@@ -68,64 +68,88 @@ script = ExtResource("5_vm3p4")
 home_sprites = Array[CompressedTexture2D]([ExtResource("10_i4yul"), ExtResource("7_c5i6v"), ExtResource("8_t0jx8"), ExtResource("9_8yikq"), ExtResource("10_i4yul")])
 
 [node name="Icon" type="Sprite2D" parent="RacoonShenanigans/Node/Home" unique_id=81623975]
+z_index = -1
+y_sort_enabled = true
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("10_i4yul")
+offset = Vector2(0, -1024)
 
 [node name="Building1" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1301395371]
 position = Vector2(621, 790)
 scale = Vector2(0.1, 0.1)
 
 [node name="Icon2" type="Sprite2D" parent="RacoonShenanigans/Node/Building1" unique_id=2037725757]
+z_index = -1
+y_sort_enabled = true
 texture = ExtResource("7_c5i6v")
+offset = Vector2(0, -1024)
 
 [node name="Building2" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1679958728]
 position = Vector2(1171, 790)
 
 [node name="Icon3" type="Sprite2D" parent="RacoonShenanigans/Node/Building2" unique_id=1195477198]
+z_index = -1
+y_sort_enabled = true
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("8_t0jx8")
+offset = Vector2(0, -1024)
 
 [node name="Building3" type="Node2D" parent="RacoonShenanigans/Node" unique_id=489935043]
 position = Vector2(1721, 790)
 
 [node name="Icon4" type="Sprite2D" parent="RacoonShenanigans/Node/Building3" unique_id=2147325872]
+z_index = -1
+y_sort_enabled = true
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("9_8yikq")
+offset = Vector2(0, -1024)
 
 [node name="Building4" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1491963263]
 position = Vector2(2271, 790)
 
 [node name="Icon5" type="Sprite2D" parent="RacoonShenanigans/Node/Building4" unique_id=1081755563]
+z_index = -1
+y_sort_enabled = true
 texture = ExtResource("4_q5fso")
 
 [node name="Building5" type="Node2D" parent="RacoonShenanigans/Node" unique_id=271762465]
 position = Vector2(2821, 790)
 
 [node name="Icon6" type="Sprite2D" parent="RacoonShenanigans/Node/Building5" unique_id=544657785]
+z_index = -1
+y_sort_enabled = true
 texture = ExtResource("4_q5fso")
 
 [node name="Building6" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1935631079]
 position = Vector2(3371, 790)
 
 [node name="Icon7" type="Sprite2D" parent="RacoonShenanigans/Node/Building6" unique_id=203322927]
+z_index = -1
+y_sort_enabled = true
 texture = ExtResource("4_q5fso")
 
 [node name="Building7" type="Node2D" parent="RacoonShenanigans/Node" unique_id=395868534]
 position = Vector2(3921, 790)
 
 [node name="Icon8" type="Sprite2D" parent="RacoonShenanigans/Node/Building7" unique_id=2098162864]
+z_index = -1
+y_sort_enabled = true
 texture = ExtResource("4_q5fso")
 
 [node name="Building8" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1877977921]
 position = Vector2(4471, 790)
 
 [node name="Icon9" type="Sprite2D" parent="RacoonShenanigans/Node/Building8" unique_id=1506605532]
+z_index = -1
+y_sort_enabled = true
 texture = ExtResource("4_q5fso")
 
 [node name="Building9" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1650988298]
 position = Vector2(5021, 790)
 
 [node name="Icon" type="Sprite2D" parent="RacoonShenanigans/Node/Building9" unique_id=100801796]
+z_index = -1
+y_sort_enabled = true
 texture = ExtResource("4_q5fso")
 
 [node name="Building10" type="Node2D" parent="RacoonShenanigans/Node" unique_id=1332741183]

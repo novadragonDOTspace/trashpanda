@@ -11,8 +11,8 @@
 [node name="Racoon" type="AnimatedSprite2D" unique_id=226744146]
 scale = Vector2(0.1, 0.1)
 sprite_frames = ExtResource("1_no0bb")
-animation = &"walk"
-frame_progress = 0.15323243
+animation = &"trash_digging"
+offset = Vector2(0, -512)
 flip_h = true
 script = ExtResource("2_no0bb")
 hats = Array[CompressedTexture2D]([ExtResource("3_3mpqj"), ExtResource("4_13jay"), ExtResource("5_d3ree"), ExtResource("6_46q0j"), ExtResource("7_x7d5t")])

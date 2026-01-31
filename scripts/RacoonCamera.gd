@@ -15,7 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var is_mouse_down = Input.is_mouse_button_pressed(1)
+	var is_mouse_down = Input.is_mouse_button_pressed(MouseButton.MOUSE_BUTTON_LEFT)
 	if is_mouse_down != was_mouse_down:
 		was_mouse_down = is_mouse_down
 		if is_mouse_down:
@@ -46,13 +46,13 @@ func _process(delta: float) -> void:
 			velocity = velocity * new_length / length
 func _normalize_position():
 	if limit_enabled:
-		var position = global_position
-		if position.x < limit_left:
-			position.x = limit_left
-		if position.x > limit_right:
-			position.x = limit_right
-		if position.y < limit_top:
-			position.y = limit_top
-		if position.y > limit_bottom:
-			position.y = limit_bottom
-		global_position = position
+		var _position = global_position
+		if _position.x < limit_left:
+			_position.x = limit_left
+		if _position.x > limit_right:
+			_position.x = limit_right
+		if _position.y < limit_top:
+			_position.y = limit_top
+		if _position.y > limit_bottom:
+			_position.y = limit_bottom
+		global_position = _position
