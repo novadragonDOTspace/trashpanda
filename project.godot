@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="trashpanda"
-run/main_scene="uid://dcr0agsjgia5a"
+run/main_scene="uid://fpukcf3dv0bu"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

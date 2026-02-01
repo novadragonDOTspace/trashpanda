@@ -160,7 +160,7 @@ func _update_racoon_position(racoon: Racoon) -> void:
 		if !racoon.returning:
 			new_position = _get_collection_position(racoon.trash_source_index)
 		else:
-			new_position = delivery_point.global_position
+			new_position = racoon_start.global_position
 	else:
 		var percentage = 1 - racoon.remaining_distance / racoon.current_total_distance
 		if racoon.returning:
@@ -197,8 +197,10 @@ func _process(delta: float) -> void:
 					racoon.is_waiting = true
 					racoon.remaining_wait_duration = _get_racoon_deliver_wait_duration(racoon) if racoon.returning else _get_racoon_target_wait_duration(racoon)
 					remaining_delta -= step_size / racoon.current_movement_speed
-				
-					racoon.play("trash_digging")
+					if racoon.returning:
+						racoon.play("delivery")
+					else:
+						racoon.play("trash_digging")
 				
 			else:
 				if remaining_delta < racoon.remaining_wait_duration.toFloat():
